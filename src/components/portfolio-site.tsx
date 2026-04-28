@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Fumis Solutions",
     client: "Fumis",
-    slug: "fumis",
+    slug: "fumissolutions",
     image: fumisImage,
     accent: "Product design · IoT platform",
     summary: "A connected product experience shaped around clarity, system thinking, and practical daily use.",
@@ -45,7 +45,7 @@ const projects = [
 ];
 
 const caseStudyDetails = {
-  fumis: {
+  fumissolutions: {
     project: projects[0],
     headline: "Turning a connected product into a calmer, clearer operating experience.",
     context:
