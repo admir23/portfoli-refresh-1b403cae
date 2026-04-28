@@ -176,7 +176,7 @@ function WorkGrid({ featured = false }: { featured?: boolean }) {
 
 function CtaSection() {
   return (
-    <section className="border-t border-border/70 bg-[image:var(--gradient-cta)]">
+    <section className="border-t border-border/70 bg-secondary">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-24">
         <h2 className="max-w-2xl text-balance text-4xl font-black leading-tight tracking-normal text-foreground sm:text-5xl">
           Let's start creating <span className="text-gradient">together</span>
@@ -254,7 +254,8 @@ export function WorkPage() {
 export function AboutPage() {
   return (
     <Shell>
-      <section className="relative border-b border-border/70 bg-[image:var(--gradient-hero)]">
+      <section className="relative border-b border-border/70 bg-background">
+        <div className="absolute inset-x-0 top-0 h-3 bg-primary" />
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-24">
           <div>
             <p className="section-kicker">About</p>
@@ -291,8 +292,8 @@ export function AboutPage() {
 export function ContactPage() {
   return (
     <Shell>
-      <section className="relative min-h-[calc(100vh-74px)] border-b border-border/70 bg-[image:var(--gradient-hero)]">
-        <div className="absolute right-[-12rem] top-[-8rem] h-80 w-80 rounded-full bg-[image:var(--gradient-ribbon)] opacity-70 blur-3xl" />
+      <section className="relative min-h-[calc(100vh-74px)] border-b border-border/70 bg-background">
+        <div className="absolute inset-x-0 top-0 h-3 bg-primary" />
         <div className="mx-auto flex w-full max-w-7xl flex-col justify-center px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <p className="section-kicker">Contact</p>
           <h1 className="mt-4 max-w-4xl text-balance text-5xl font-black leading-tight tracking-normal text-foreground sm:text-6xl lg:text-7xl">
