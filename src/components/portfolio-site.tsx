@@ -151,18 +151,20 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
-        <p className="hand-note absolute left-[18%] top-[29%] hidden rotate-[-7deg] text-muted-foreground lg:block">
-          Hi, I'm Admir
-        </p>
-        <p className="hand-note absolute right-[17%] top-[55%] hidden max-w-xs rotate-[4deg] text-muted-foreground lg:block">
-          designing products that feel clear before they ask for effort
-        </p>
-        <h1 className="relative mx-auto max-w-5xl text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
-          <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
-            product design
-          </span>
-          I blend thoughtful strategy with product design to make experiences that just… make sense
-        </h1>
+        <div className="relative mx-auto max-w-5xl">
+          <p className="hand-note mb-3 ml-1 rotate-[-6deg] text-muted-foreground sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
+            Hi, I'm Admir
+          </p>
+          <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
+            <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
+              product design
+            </span>
+            I blend thoughtful strategy with product design to make experiences that just… make sense
+          </h1>
+          <p className="hand-note mt-5 max-w-xs rotate-[3deg] text-muted-foreground sm:ml-auto sm:mr-8 lg:mr-0">
+            designing products that feel clear before they ask for effort
+          </p>
+        </div>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             By blending thoughtful strategy, purposeful design, and user-centered insights, I help shape
