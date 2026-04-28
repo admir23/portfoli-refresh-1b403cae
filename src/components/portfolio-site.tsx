@@ -91,11 +91,11 @@ const caseStudyDetails = {
       },
       {
         title: "Approach",
-        body: "I focused on clearer information grouping, patient-friendly language, and visual pacing that helps users understand what matters at each step.",
+        body: "I focused on clearer information grouping, language patients can understand, and visual pacing that helps users see what matters at each step.",
       },
       {
         title: "Outcome",
-        body: "The work establishes a calmer patient experience with stronger guidance, clearer next actions, and a more usable foundation for care-related journeys.",
+        body: "The work establishes a calmer patient experience with stronger guidance, clearer next actions, and a more usable foundation for care journeys.",
       },
     ],
   },
@@ -385,7 +385,7 @@ function Hero() {
         </div>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            By blending thoughtful strategy, purposeful design, and user-centered insights, I help
+            By blending thoughtful strategy, purposeful design, and user centered insights, I help
             shape products that not only function seamlessly but also connect meaningfully.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
