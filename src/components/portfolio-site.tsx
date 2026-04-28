@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 
+import admirLogo from "../assets/admir-kurtovic-logo.svg";
 import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
@@ -114,8 +115,8 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-        <Link to="/" className="text-sm font-black text-foreground" aria-label="Admir Kurtovic home">
-          Admir
+        <Link to="/" className="block" aria-label="Admir Kurtovic home">
+          <img src={admirLogo} alt="Admir Kurtovic logo" className="h-9 w-9" />
         </Link>
         <div className="flex items-center gap-4 sm:gap-8">
           <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
