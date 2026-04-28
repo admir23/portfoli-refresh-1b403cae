@@ -166,10 +166,15 @@ function Hero() {
 }
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
-  return (
-    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+  const content = (
+    <>
       <div>
-        <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+          <span className="rounded-full border border-border px-3 py-1 text-xs font-bold text-muted-foreground">
+            {project.status}
+          </span>
+        </div>
         <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
           {project.title}
         </h2>
@@ -184,6 +189,24 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
           loading="lazy"
         />
       </div>
+    </>
+  );
+
+  if (project.slug) {
+    return (
+      <Link
+        to="/work/$projectId"
+        params={{ projectId: project.slug }}
+        className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+      {content}
     </article>
   );
 }
