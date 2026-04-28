@@ -212,12 +212,6 @@
     color: var(--color-muted-foreground);
   }
 
-  .hand-note {
-    font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
-    font-size: 1.05rem;
-    line-height: 1.35;
-  }
-
   .btn-invert {
     display: inline-flex;
     min-height: 3rem;
