@@ -117,7 +117,7 @@ function Header() {
         <Link to="/" className="text-sm font-black text-foreground" aria-label="Admir Kurtovic home">
           Admir
         </Link>
-        <div className="flex items-center gap-5 sm:gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
           <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
             My Work
           </Link>
@@ -127,6 +127,9 @@ function Header() {
           <Link to="/contact" className={linkClass} activeOptions={{ exact: true }}>
             Contact
           </Link>
+          <a href="/Admir_Kurtovic_CV_2026.pdf" download className={linkClass}>
+            CV
+          </a>
         </div>
       </nav>
     </header>
@@ -262,7 +265,6 @@ function Footer() {
           <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href="https://dribbble.com/Admir_Kurtovic">Dribbble</a>
         </div>
       </div>
     </footer>
