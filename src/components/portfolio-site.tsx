@@ -86,9 +86,8 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function Hero() {
   return (
-    <section className="relative isolate border-b border-border/70">
-      <div className="absolute inset-0 -z-10 bg-[image:var(--gradient-hero)]" />
-      <div className="absolute right-[-18rem] top-[-16rem] -z-10 h-[36rem] w-[36rem] rounded-full bg-[image:var(--gradient-ribbon)] opacity-80 blur-3xl" />
+    <section className="relative isolate border-b border-border/70 bg-background">
+      <div className="absolute inset-x-0 top-0 -z-10 h-3 bg-primary" />
       <div className="absolute left-1/2 top-0 -z-10 h-full w-px bg-border/70" />
       <div className="mx-auto grid min-h-[calc(100vh-74px)] w-full max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div className="max-w-3xl">
@@ -114,7 +113,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative min-h-[28rem] lg:min-h-[34rem]">
-          <div className="absolute inset-x-4 top-4 h-72 rotate-[-10deg] rounded-[2rem] bg-[image:var(--gradient-ribbon)] opacity-90 shadow-[var(--shadow-glow)] sm:h-96" />
+          <div className="absolute inset-x-4 top-4 h-72 rotate-[-7deg] rounded-3xl bg-[var(--band)] shadow-[var(--shadow-glow)] sm:h-96" />
           <div className="absolute bottom-0 left-0 right-0 mx-auto max-w-md rounded-2xl border border-border/70 bg-card/80 p-4 shadow-[var(--shadow-card)] backdrop-blur-xl">
             <img
               src={fumisImage}
@@ -140,10 +139,7 @@ function Hero() {
 
 function ProjectCard({ project, featured = false }: { project: (typeof projects)[number]; featured?: boolean }) {
   return (
-    <a
-      href={project.href}
-      className={`group block overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] ${featured ? "lg:first:col-span-2" : ""}`}
-    >
+    <article className={`group block overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] ${featured ? "lg:first:col-span-2" : ""}`}>
       <div className="overflow-hidden bg-secondary">
         <img
           src={project.image}
@@ -160,11 +156,11 @@ function ProjectCard({ project, featured = false }: { project: (typeof projects)
           </h2>
           <p className="mt-1 text-muted-foreground">{project.client}</p>
         </div>
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-secondary text-xl text-foreground transition group-hover:bg-primary group-hover:text-primary-foreground">
-          ↗
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-secondary text-xl text-foreground transition group-hover:bg-foreground group-hover:text-background">
+          —
         </span>
       </div>
-    </a>
+    </article>
   );
 }
 
