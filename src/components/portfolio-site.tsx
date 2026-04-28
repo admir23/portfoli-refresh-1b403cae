@@ -757,31 +757,62 @@ export function ContactPage() {
 }
 
 export function PlaygroundPage() {
-  const experiments = ["Interaction studies", "Prototype sketches", "Interface details"];
-
   return (
     <Shell>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
         <p className="section-kicker mb-3">playground</p>
         <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
-          Small experiments for product ideas, motion, and interface craft.
+          Side projects, useful ideas, and experiments that started with a real problem.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-          A place for explorations that test how a product could feel before it becomes a full case study.
+          A place for smaller builds and product explorations—some polished, some scrappy, all shaped
+          around learning by making.
         </p>
-        <div className="mt-14 grid border-t border-border md:grid-cols-3">
-          {experiments.map((experiment, index) => (
-            <article key={experiment} className="border-b border-border py-8 md:px-8 md:first:border-r md:last:border-l">
-              <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-              <h2 className="mt-8 text-3xl font-bold leading-tight tracking-normal text-foreground">
-                {experiment}
+        <article className="mt-14 border-t border-border py-10">
+          <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div>
+              <p className="text-sm font-black text-muted-foreground">01</p>
+              <h2 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
+                CFS Open — internal CrossFit competition tracker
               </h2>
-              <p className="mt-4 leading-7 text-muted-foreground">
-                Early thinking, visual direction, and product patterns shaped through quick iteration.
+              <p className="mt-4 text-sm font-bold text-foreground">
+                Side project · Product design · AI-assisted build
               </p>
-            </article>
-          ))}
-        </div>
+            </div>
+            <div className="space-y-6 text-lg leading-8 text-muted-foreground">
+              <p>
+                This started with a friend at Community Fitness Sarajevo, where the box runs an
+                internal Open-style competition every year. The energy was there, the workouts were
+                there, and members loved competing—but tracking scores, organizing workouts, and
+                sharing results kept turning into manual work.
+              </p>
+              <p>
+                I helped turn that messy process into a small web app for box owners and coaches: a
+                place to publish workouts, manage athletes, record scores, and make the leaderboard
+                easy for members to follow during the competition.
+              </p>
+              <p>
+                The goal was not to overbuild it. It needed to feel fast, clear, and familiar for a
+                local gym team running the event alongside everyday coaching. I used Claude Code to
+                move quickly through the build and Figma for visual edits, layout decisions, and UI
+                polish.
+              </p>
+              <div className="grid gap-3 pt-2 text-base font-bold text-foreground sm:grid-cols-3">
+                <div className="border-t border-border pt-4">Workout setup</div>
+                <div className="border-t border-border pt-4">Score tracking</div>
+                <div className="border-t border-border pt-4">Shared leaderboard</div>
+              </div>
+              <a
+                href="https://cfs-open.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary mt-2 inline-flex"
+              >
+                View CFS Open
+              </a>
+            </div>
+          </div>
+        </article>
       </section>
       <CtaSection />
     </Shell>
