@@ -485,6 +485,7 @@ function Footer() {
           <Link to="/work">Work</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/playground">Playground</Link>
           <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
@@ -751,6 +752,38 @@ export function ContactPage() {
           </a>
         </div>
       </section>
+    </Shell>
+  );
+}
+
+export function PlaygroundPage() {
+  const experiments = ["Interaction studies", "Prototype sketches", "Interface details"];
+
+  return (
+    <Shell>
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
+        <p className="section-kicker mb-3">playground</p>
+        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+          Small experiments for product ideas, motion, and interface craft.
+        </h1>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+          A place for explorations that test how a product could feel before it becomes a full case study.
+        </p>
+        <div className="mt-14 grid border-t border-border md:grid-cols-3">
+          {experiments.map((experiment, index) => (
+            <article key={experiment} className="border-b border-border py-8 md:px-8 md:first:border-r md:last:border-l">
+              <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+              <h2 className="mt-8 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                {experiment}
+              </h2>
+              <p className="mt-4 leading-7 text-muted-foreground">
+                Early thinking, visual direction, and product patterns shaped through quick iteration.
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <CtaSection />
     </Shell>
   );
 }
