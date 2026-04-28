@@ -9,32 +9,96 @@ const projects = [
   {
     title: "Fumis Solutions",
     client: "Fumis",
+    slug: "fumis",
     image: fumisImage,
     accent: "Product design · IoT platform",
     summary: "A connected product experience shaped around clarity, system thinking, and practical daily use.",
+    status: "Read case study",
   },
   {
     title: "Direct2Care",
     client: "Direct2MD",
+    slug: "direct2care",
     image: direct2careImage,
     accent: "Healthcare · Patient experience",
     summary: "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
+    status: "Read case study",
   },
   {
     title: "United Fitness",
     client: "United Fitness Brands",
+    slug: null,
     image: unitedFitnessImage,
     accent: "Wellness · Brand systems",
     summary: "A wellness brand system focused on motivation, consistency, and a more usable digital presence.",
+    status: "Case study in progress",
   },
   {
     title: "Ebgroupp",
     client: "Handwerker Pro",
+    slug: null,
     image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
     summary: "A service marketplace experience that turns fragmented workflows into clearer product moments.",
+    status: "Case study in progress",
   },
 ];
+
+const caseStudyDetails = {
+  fumis: {
+    project: projects[0],
+    headline: "Turning a connected product into a calmer, clearer operating experience.",
+    context:
+      "Fumis needed the product experience to communicate system status, guide everyday workflows, and make a technical IoT platform feel easier to understand.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "The interface had to support complex product signals without making users feel like they were managing complexity. The work focused on hierarchy, state clarity, and repeatable patterns.",
+      },
+      {
+        title: "Approach",
+        body: "I shaped the experience around practical decisions users need to make: what is happening, what needs attention, and what action comes next.",
+      },
+      {
+        title: "Outcome",
+        body: "The resulting direction gives the platform a clearer visual language, stronger product storytelling, and a more confident path for future feature growth.",
+      },
+    ],
+  },
+  direct2care: {
+    project: projects[1],
+    headline: "Making healthcare interactions feel more direct, understandable, and trustworthy.",
+    context:
+      "Direct2Care needed a product experience that could reduce friction around healthcare actions while keeping the interface approachable and dependable.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "Healthcare flows can quickly feel heavy. The core challenge was to simplify decision points and create a sense of momentum without losing trust or clarity.",
+      },
+      {
+        title: "Approach",
+        body: "I focused on clearer information grouping, patient-friendly language, and visual pacing that helps users understand what matters at each step.",
+      },
+      {
+        title: "Outcome",
+        body: "The work establishes a calmer patient experience with stronger guidance, clearer next actions, and a more usable foundation for care-related journeys.",
+      },
+    ],
+  },
+} as const;
+
+export function getCaseStudyMeta(projectId: string) {
+  const caseStudy = caseStudyDetails[projectId as keyof typeof caseStudyDetails];
+
+  if (!caseStudy) {
+    return null;
+  }
+
+  return {
+    title: caseStudy.project.title,
+    description: caseStudy.context,
+  };
+}
 
 const principles = [
   "Thoughtful strategy",
@@ -115,10 +179,15 @@ function Hero() {
 }
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
-  return (
-    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+  const content = (
+    <>
       <div>
-        <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+        <div className="flex flex-wrap items-center gap-3">
+          <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+          <span className="rounded-full border border-border px-3 py-1 text-xs font-bold text-muted-foreground">
+            {project.status}
+          </span>
+        </div>
         <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
           {project.title}
         </h2>
@@ -133,6 +202,24 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
           loading="lazy"
         />
       </div>
+    </>
+  );
+
+  if (project.slug) {
+    return (
+      <Link
+        to="/work/$projectId"
+        params={{ projectId: project.slug }}
+        className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+      {content}
     </article>
   );
 }
@@ -214,6 +301,59 @@ export function WorkPage() {
           <WorkList />
         </div>
       </section>
+      <CtaSection />
+    </Shell>
+  );
+}
+
+export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudyDetails }) {
+  const caseStudy = caseStudyDetails[projectId];
+  const relatedProjects = projects.filter((project) => project.slug !== projectId).slice(0, 2);
+
+  return (
+    <Shell>
+      <article>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-12 pt-32 sm:px-8 lg:pt-40">
+          <Link to="/work" className="section-kicker mb-6 inline-block">
+            ← Back to work
+          </Link>
+          <p className="hand-note mb-3 text-muted-foreground">{caseStudy.project.client}</p>
+          <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+            {caseStudy.headline}
+          </h1>
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-muted-foreground">{caseStudy.context}</p>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+          <div className="overflow-hidden rounded-[1.8rem] bg-secondary p-3">
+            <img
+              src={caseStudy.project.image}
+              alt={`${caseStudy.project.title} case study hero`}
+              className="aspect-[16/9] w-full rounded-[1.25rem] object-cover"
+              loading="eager"
+            />
+          </div>
+          <div className="mt-12 grid border-t border-border lg:grid-cols-3">
+            {caseStudy.sections.map((section) => (
+              <section key={section.title} className="border-b border-border py-8 lg:border-r lg:px-8 lg:last:border-r-0">
+                <h2 className="text-3xl font-bold leading-tight tracking-normal text-foreground">{section.title}</h2>
+                <p className="mt-5 text-lg leading-8 text-muted-foreground">{section.body}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+          <p className="section-kicker mb-4">More work</p>
+          <div className="grid border-t border-border md:grid-cols-2">
+            {relatedProjects.map((project) => (
+              <div key={project.title} className="border-b border-border py-8 md:px-8 md:odd:border-r">
+                <p className="text-sm font-bold text-muted-foreground">{project.status}</p>
+                <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-foreground">{project.title}</h2>
+                <p className="mt-4 text-muted-foreground">{project.summary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </article>
       <CtaSection />
     </Shell>
   );
