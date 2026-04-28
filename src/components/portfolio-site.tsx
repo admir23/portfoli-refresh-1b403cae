@@ -117,7 +117,7 @@ function Header() {
         <Link to="/" className="text-sm font-black text-foreground" aria-label="Admir Kurtovic home">
           Admir
         </Link>
-        <div className="flex items-center gap-5 sm:gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
           <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
             My Work
           </Link>
@@ -127,6 +127,9 @@ function Header() {
           <Link to="/contact" className={linkClass} activeOptions={{ exact: true }}>
             Contact
           </Link>
+          <a href="/Admir_Kurtovic_CV_2026.pdf" download className={linkClass}>
+            CV
+          </a>
         </div>
       </nav>
     </header>
@@ -262,7 +265,6 @@ function Footer() {
           <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
-          <a href="https://dribbble.com/Admir_Kurtovic">Dribbble</a>
         </div>
       </div>
     </footer>
@@ -376,18 +378,27 @@ export function AboutPage() {
         <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
           <p className="hand-note max-w-sm rotate-[-2deg] text-muted-foreground">Hi, I'm Admir.</p>
           <p>
-            By blending thoughtful strategy, purposeful design, and user-centered insights, I help
-            shape products that not only function seamlessly but also connect meaningfully.
+            I’m a Senior Product Designer with experience across marketplaces, healthcare,
+            accessibility platforms, AI-powered analytics, telemedicine, and SaaS products.
           </p>
-          <p>Together, we create experiences that engage, inspire, and deliver real value.</p>
-          <a
-            href="https://www.linkedin.com/in/admirkurtovic/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary mt-2"
-          >
-            Connect on LinkedIn
-          </a>
+          <p>
+            My work spans end-to-end product design, research, design systems, testing, and
+            production-aware collaboration—often turning complex workflows into interfaces that feel
+            clearer, faster, and easier to trust.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://www.linkedin.com/in/admirkurtovic/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary mt-2"
+            >
+              Connect on LinkedIn
+            </a>
+            <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary mt-2">
+              Download CV
+            </a>
+          </div>
         </div>
       </section>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
@@ -395,20 +406,52 @@ export function AboutPage() {
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Focus</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Product strategy, UX systems, and interface craft.
+              Marketplace flows, healthcare tools, AI products, and design systems.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Approach</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Make complex workflows feel simple without losing meaning.
+              Research, testing, Figma systems, and close design-to-development collaboration.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:px-8">
-            <p className="section-kicker">Outcome</p>
+            <p className="section-kicker">Tools</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Digital products that are useful, usable, and easier to trust.
+              Figma, Framer, Storybook, Miro, Lottie, HTML/CSS, and AI-assisted workflows.
             </h2>
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+        <div className="grid gap-10 border-t border-border py-10 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="section-kicker">Recent experience</p>
+            <p className="hand-note mt-4 max-w-xs rotate-[2deg] text-muted-foreground">
+              designing systems that ship
+            </p>
+          </div>
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm font-bold text-muted-foreground">2025 — Present · LawnGuru</p>
+              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                Leading end-to-end design across marketplace flows.
+              </h2>
+              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+                Owning Order History, Order Detail, My Services, and quote review flows while building
+                scalable Figma components and translating key UI patterns into production React and HTML.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-muted-foreground">2024 — 2025 · Social Explorer</p>
+              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                Designed accessibility and AI analytics platforms.
+              </h2>
+              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+                Worked on AARP’s accessibility platform for older adults and Signal Aviation, an
+                AI-powered platform that helps airlines identify high-potential markets.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -452,8 +495,8 @@ export function ContactPage() {
           >
             LinkedIn
           </a>
-          <a href="https://dribbble.com/Admir_Kurtovic" className="btn-secondary">
-            Dribbble
+          <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary">
+            Download CV
           </a>
         </div>
       </section>
