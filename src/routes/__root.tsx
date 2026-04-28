@@ -43,6 +43,12 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Admir_Kurtovic" },
+      { name: "twitter:title", content: "Admir Kurtovic — Product Designer" },
+      { name: "description", content: "A modern, mobile-friendly portfolio website showcasing professional work and personal information." },
+      { property: "og:description", content: "A modern, mobile-friendly portfolio website showcasing professional work and personal information." },
+      { name: "twitter:description", content: "A modern, mobile-friendly portfolio website showcasing professional work and personal information." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3704e43c-f8f7-4744-a868-9902deb1bb5b/id-preview-df06f061--09a34e2e-043d-4b25-915c-567d88f53502.lovable.app-1777360259339.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3704e43c-f8f7-4744-a868-9902deb1bb5b/id-preview-df06f061--09a34e2e-043d-4b25-915c-567d88f53502.lovable.app-1777360259339.png" },
     ],
     links: [
       {
