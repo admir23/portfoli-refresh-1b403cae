@@ -113,31 +113,34 @@ const principles = [
   "Products that deliver value",
 ];
 
-type ThemeMode = "system" | "light" | "dark";
+type ThemeMode = "light" | "dark";
+
+function getPreferredTheme(): ThemeMode {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? "dark" : "light";
+}
 
 function applyTheme(theme: ThemeMode) {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.classList.toggle(
-    "dark",
-    theme === "dark" || (theme === "system" && prefersDark),
-  );
+  document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState<ThemeMode>("system");
+  const [theme, setTheme] = useState<ThemeMode>("light");
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const initialTheme: ThemeMode =
-      savedTheme === "light" || savedTheme === "dark" ? savedTheme : "system";
+      savedTheme === "light" || savedTheme === "dark" ? savedTheme : getPreferredTheme();
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     setTheme(initialTheme);
     applyTheme(initialTheme);
 
     const handleSystemThemeChange = () => {
-      if ((localStorage.getItem("theme") ?? "system") === "system") {
-        applyTheme("system");
+      if (!localStorage.getItem("theme")) {
+        const preferredTheme = getPreferredTheme();
+        applyTheme(preferredTheme);
+        setTheme(preferredTheme);
       }
     };
 
@@ -147,8 +150,7 @@ function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme: ThemeMode =
-      theme === "system" ? "light" : theme === "light" ? "dark" : "system";
+    const nextTheme: ThemeMode = theme === "dark" ? "light" : "dark";
     applyTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
     setTheme(nextTheme);
