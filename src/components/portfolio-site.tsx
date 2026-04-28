@@ -87,6 +87,19 @@ const caseStudyDetails = {
   },
 } as const;
 
+export function getCaseStudyMeta(projectId: string) {
+  const caseStudy = caseStudyDetails[projectId as keyof typeof caseStudyDetails];
+
+  if (!caseStudy) {
+    return null;
+  }
+
+  return {
+    title: caseStudy.project.title,
+    description: caseStudy.context,
+  };
+}
+
 const principles = [
   "Thoughtful strategy",
   "Purposeful design",
