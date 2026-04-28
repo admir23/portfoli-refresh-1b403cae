@@ -313,35 +313,37 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
   return (
     <Shell>
       <article>
-        <section className="mx-auto w-full max-w-6xl px-5 pb-12 pt-32 sm:px-8 lg:pt-40">
+        <section className="relative mx-auto w-full max-w-6xl px-5 pb-10 pt-28 sm:px-8 sm:pb-12 sm:pt-32 lg:pt-40">
           <Link to="/work" className="section-kicker mb-6 inline-block">
             ← Back to work
           </Link>
-          <p className="hand-note mb-3 text-muted-foreground">{caseStudy.project.client}</p>
-          <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+          <p className="hand-note mb-3 max-w-[12rem] rotate-[-3deg] text-muted-foreground sm:absolute sm:right-8 sm:top-36 sm:max-w-[14rem] sm:rotate-[4deg] lg:right-16">
+            {caseStudy.project.client} · {caseStudy.project.accent}
+          </p>
+          <h1 className="max-w-5xl text-balance text-[2.75rem] font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
             {caseStudy.headline}
           </h1>
-          <p className="mt-8 max-w-3xl text-xl leading-9 text-muted-foreground">{caseStudy.context}</p>
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:mt-8 sm:text-xl sm:leading-9">{caseStudy.context}</p>
         </section>
-        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
-          <div className="overflow-hidden rounded-[1.8rem] bg-secondary p-3">
+        <section className="mx-auto w-full max-w-6xl px-5 pb-14 sm:px-8 sm:pb-16 lg:pb-24">
+          <div className="overflow-hidden rounded-[1.25rem] bg-secondary p-2 sm:rounded-[1.8rem] sm:p-3">
             <img
               src={caseStudy.project.image}
               alt={`${caseStudy.project.title} case study hero`}
-              className="aspect-[16/9] w-full rounded-[1.25rem] object-cover"
+              className="aspect-[4/3] w-full rounded-[0.9rem] object-cover sm:aspect-[16/9] sm:rounded-[1.25rem]"
               loading="eager"
             />
           </div>
-          <div className="mt-12 grid border-t border-border lg:grid-cols-3">
+          <div className="mt-10 grid border-t border-border sm:mt-12 lg:grid-cols-3">
             {caseStudy.sections.map((section) => (
-              <section key={section.title} className="border-b border-border py-8 lg:border-r lg:px-8 lg:last:border-r-0">
-                <h2 className="text-3xl font-bold leading-tight tracking-normal text-foreground">{section.title}</h2>
-                <p className="mt-5 text-lg leading-8 text-muted-foreground">{section.body}</p>
+              <section key={section.title} className="border-b border-border py-7 sm:py-8 lg:border-r lg:px-8 lg:last:border-r-0">
+                <h2 className="text-2xl font-bold leading-tight tracking-normal text-foreground sm:text-3xl">{section.title}</h2>
+                <p className="mt-4 text-base leading-8 text-muted-foreground sm:mt-5 sm:text-lg">{section.body}</p>
               </section>
             ))}
           </div>
         </section>
-        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+        <section className="mx-auto w-full max-w-6xl px-5 pb-14 sm:px-8 sm:pb-16 lg:pb-24">
           <p className="section-kicker mb-4">More work</p>
           <div className="grid border-t border-border md:grid-cols-2">
             {relatedProjects.map((project) => (
