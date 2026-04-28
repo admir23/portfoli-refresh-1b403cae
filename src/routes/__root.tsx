@@ -29,14 +29,20 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Admir Kurtovic — Product Designer" },
+      {
+        name: "description",
+        content: "Portfolio of Admir Kurtovic, crafting impactful products through strategy and design.",
+      },
+      { name: "author", content: "Admir Kurtovic" },
+      { property: "og:title", content: "Admir Kurtovic — Product Designer" },
+      {
+        property: "og:description",
+        content: "Selected product design work by Admir Kurtovic.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@Admir_Kurtovic" },
     ],
     links: [
       {

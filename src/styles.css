@@ -62,26 +62,26 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.75rem;
+  --background: oklch(0.985 0.008 248);
+  --foreground: oklch(0.17 0.055 258);
+  --card: oklch(1 0 0 / 84%);
+  --card-foreground: oklch(0.17 0.055 258);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.17 0.055 258);
+  --primary: oklch(0.57 0.24 285);
+  --primary-foreground: oklch(0.99 0.006 248);
+  --secondary: oklch(0.94 0.017 248);
+  --secondary-foreground: oklch(0.2 0.052 258);
+  --muted: oklch(0.94 0.017 248);
+  --muted-foreground: oklch(0.43 0.052 252);
+  --accent: oklch(0.88 0.09 174);
+  --accent-foreground: oklch(0.18 0.055 258);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.88 0.019 248);
+  --input: oklch(0.88 0.019 248);
+  --ring: oklch(0.57 0.24 285);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -95,6 +95,12 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --gradient-hero: radial-gradient(circle at 88% 10%, oklch(0.86 0.2 52 / 32%), transparent 32%), radial-gradient(circle at 98% 30%, oklch(0.7 0.25 330 / 24%), transparent 28%), linear-gradient(180deg, oklch(0.985 0.008 248), oklch(0.965 0.018 248));
+  --gradient-ribbon: linear-gradient(135deg, oklch(0.66 0.25 18), oklch(0.78 0.2 57), oklch(0.66 0.25 306), oklch(0.56 0.25 278));
+  --gradient-cta: linear-gradient(135deg, oklch(0.965 0.018 248), oklch(0.91 0.07 250));
+  --shadow-soft: 0 16px 50px -32px oklch(0.17 0.055 258 / 45%);
+  --shadow-card: 0 30px 80px -35px oklch(0.17 0.055 258 / 55%);
+  --shadow-glow: 0 20px 70px -30px oklch(0.57 0.24 285 / 65%);
 }
 
 .dark {
@@ -140,5 +146,73 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-ribbon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-primary-foreground);
+    box-shadow: var(--shadow-glow);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in oklab, var(--color-card) 72%, transparent);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-foreground);
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+  }
+
+  .section-kicker {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
   }
 }
