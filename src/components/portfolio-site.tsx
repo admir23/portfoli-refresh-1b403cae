@@ -127,8 +127,8 @@ function Header() {
           <Link to="/contact" className={linkClass} activeOptions={{ exact: true }}>
             Contact
           </Link>
-          <a href="/Admir_Kurtovic_CV_2026.pdf" download className={linkClass}>
-            CV
+          <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className={linkClass}>
+            Resume
           </a>
         </div>
       </nav>
@@ -395,8 +395,8 @@ export function AboutPage() {
             >
               Connect on LinkedIn
             </a>
-            <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary mt-2">
-              Download CV
+            <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className="btn-secondary mt-2">
+              View Resume
             </a>
           </div>
         </div>
@@ -495,8 +495,8 @@ export function ContactPage() {
           >
             LinkedIn
           </a>
-          <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary">
-            Download CV
+          <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className="btn-secondary">
+            View Resume
           </a>
         </div>
       </section>
