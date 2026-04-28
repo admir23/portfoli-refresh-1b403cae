@@ -321,7 +321,9 @@ function Shell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen overflow-x-hidden bg-background pb-24 text-foreground sm:pb-0">
       <Header />
       <main>{children}</main>
-      <Footer />
+      <div className="hidden sm:block">
+        <Footer />
+      </div>
       <BottomNavigation />
     </div>
   );
