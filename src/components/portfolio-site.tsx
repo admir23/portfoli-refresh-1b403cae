@@ -259,7 +259,9 @@ function Footer() {
           <Link to="/work">Work</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
-          <a href="https://www.linkedin.com/in/admirkurtovic/">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
           <a href="https://dribbble.com/Admir_Kurtovic">Dribbble</a>
         </div>
       </div>
@@ -366,17 +368,48 @@ export function AboutPage() {
     <Shell>
       <section className="mx-auto grid w-full max-w-6xl gap-12 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:pb-24 lg:pt-40">
         <div>
-          <p className="section-kicker mb-3">how I think</p>
+          <p className="section-kicker mb-3">about me</p>
           <h1 className="text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
-            Design with direction and depth.
+            I design products with direction, clarity, and depth.
           </h1>
         </div>
         <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
+          <p className="hand-note max-w-sm rotate-[-2deg] text-muted-foreground">Hi, I'm Admir.</p>
           <p>
             By blending thoughtful strategy, purposeful design, and user-centered insights, I help
             shape products that not only function seamlessly but also connect meaningfully.
           </p>
           <p>Together, we create experiences that engage, inspire, and deliver real value.</p>
+          <a
+            href="https://www.linkedin.com/in/admirkurtovic/"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary mt-2"
+          >
+            Connect on LinkedIn
+          </a>
+        </div>
+      </section>
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+        <div className="grid border-t border-border lg:grid-cols-3">
+          <div className="border-b border-border py-8 lg:border-r lg:px-8">
+            <p className="section-kicker">Focus</p>
+            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+              Product strategy, UX systems, and interface craft.
+            </h2>
+          </div>
+          <div className="border-b border-border py-8 lg:border-r lg:px-8">
+            <p className="section-kicker">Approach</p>
+            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+              Make complex workflows feel simple without losing meaning.
+            </h2>
+          </div>
+          <div className="border-b border-border py-8 lg:px-8">
+            <p className="section-kicker">Outcome</p>
+            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+              Digital products that are useful, usable, and easier to trust.
+            </h2>
+          </div>
         </div>
       </section>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
@@ -411,7 +444,12 @@ export function ContactPage() {
           <a href="mailto:hello@admirkurtovic.com" className="btn-primary">
             hello@admirkurtovic.com
           </a>
-          <a href="https://www.linkedin.com/in/admirkurtovic/" className="btn-secondary">
+          <a
+            href="https://www.linkedin.com/in/admirkurtovic/"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+          >
             LinkedIn
           </a>
           <a href="https://dribbble.com/Admir_Kurtovic" className="btn-secondary">
