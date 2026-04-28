@@ -18,9 +18,9 @@ export const Route = createFileRoute("/work_/$projectId")({
 
     return {
       meta: [
-        { title: `${title} — Admir Kurtovic` },
+        { title: `${title} by Admir Kurtovic` },
         { name: "description", content: description },
-        { property: "og:title", content: `${title} — Admir Kurtovic` },
+        { property: "og:title", content: `${title} by Admir Kurtovic` },
         { property: "og:description", content: description },
       ],
     };
