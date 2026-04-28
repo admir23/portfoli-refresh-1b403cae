@@ -83,6 +83,12 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
+        <p className="hand-note absolute left-[18%] top-[29%] hidden rotate-[-7deg] text-muted-foreground lg:block">
+          Hi, I'm Admir
+        </p>
+        <p className="hand-note absolute right-[17%] top-[55%] hidden max-w-xs rotate-[4deg] text-muted-foreground lg:block">
+          designing products that feel clear before they ask for effort
+        </p>
         <h1 className="relative mx-auto max-w-5xl text-balance text-[3.4rem] font-black leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
           <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
             product design
@@ -180,6 +186,7 @@ export function HomePage() {
       <Hero />
       <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
         <div className="mb-4">
+          <p className="hand-note mb-2 text-muted-foreground">Okay so… how do I do that?</p>
           <h2 className="text-5xl font-black leading-none tracking-normal text-foreground sm:text-7xl">
             Here’s how
           </h2>
