@@ -8,6 +8,7 @@ import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
+  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
