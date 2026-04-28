@@ -5,13 +5,13 @@ import { HomePage } from "../components/portfolio-site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Admir Kurtovic — Product Designer" },
+      { title: "Admir Kurtovic, Product Designer" },
       {
         name: "description",
         content:
-          "Portfolio of Admir Kurtovic, crafting impactful products through strategy, purposeful design, and user-centered insights.",
+          "Portfolio of Admir Kurtovic, crafting useful products through strategy, purposeful design, and user centered insights.",
       },
-      { property: "og:title", content: "Admir Kurtovic — Product Designer" },
+      { property: "og:title", content: "Admir Kurtovic, Product Designer" },
       {
         property: "og:description",
         content:
