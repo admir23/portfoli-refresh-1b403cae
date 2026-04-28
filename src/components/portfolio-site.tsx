@@ -256,10 +256,12 @@ function CtaSection() {
 }
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-background">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-8 text-sm font-semibold text-muted-foreground sm:px-8 md:flex-row md:items-center md:justify-between">
-        <p>© 2025 Admir Kurtovic</p>
+        <p>© {currentYear} Admir Kurtovic</p>
         <div className="flex flex-wrap gap-5">
           <Link to="/">Home</Link>
           <Link to="/work">Work</Link>
