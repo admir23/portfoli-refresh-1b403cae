@@ -495,8 +495,8 @@ export function ContactPage() {
           >
             LinkedIn
           </a>
-          <a href="https://dribbble.com/Admir_Kurtovic" className="btn-secondary">
-            Dribbble
+          <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary">
+            Download CV
           </a>
         </div>
       </section>
