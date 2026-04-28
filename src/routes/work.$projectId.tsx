@@ -12,14 +12,19 @@ export const Route = createFileRoute("/work/$projectId")({
 
     return meta;
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: `${loaderData.title} — Admir Kurtovic` },
-      { name: "description", content: loaderData.description },
-      { property: "og:title", content: `${loaderData.title} — Admir Kurtovic` },
-      { property: "og:description", content: loaderData.description },
-    ],
-  }),
+  head: ({ loaderData }) => {
+    const title = loaderData?.title ?? "Case Study";
+    const description = loaderData?.description ?? "Product design case study by Admir Kurtovic.";
+
+    return {
+      meta: [
+        { title: `${title} — Admir Kurtovic` },
+        { name: "description", content: description },
+        { property: "og:title", content: `${title} — Admir Kurtovic` },
+        { property: "og:description", content: description },
+      ],
+    };
+  },
   component: ProjectCaseStudyRoute,
 });
 
