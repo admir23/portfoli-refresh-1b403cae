@@ -293,6 +293,59 @@ export function WorkPage() {
   );
 }
 
+export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudyDetails }) {
+  const caseStudy = caseStudyDetails[projectId];
+  const relatedProjects = projects.filter((project) => project.slug !== projectId).slice(0, 2);
+
+  return (
+    <Shell>
+      <article>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-12 pt-32 sm:px-8 lg:pt-40">
+          <Link to="/work" className="section-kicker mb-6 inline-block">
+            ← Back to work
+          </Link>
+          <p className="hand-note mb-3 text-muted-foreground">{caseStudy.project.client}</p>
+          <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+            {caseStudy.headline}
+          </h1>
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-muted-foreground">{caseStudy.context}</p>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+          <div className="overflow-hidden rounded-[1.8rem] bg-secondary p-3">
+            <img
+              src={caseStudy.project.image}
+              alt={`${caseStudy.project.title} case study hero`}
+              className="aspect-[16/9] w-full rounded-[1.25rem] object-cover"
+              loading="eager"
+            />
+          </div>
+          <div className="mt-12 grid border-t border-border lg:grid-cols-3">
+            {caseStudy.sections.map((section) => (
+              <section key={section.title} className="border-b border-border py-8 lg:border-r lg:px-8 lg:last:border-r-0">
+                <h2 className="text-3xl font-bold leading-tight tracking-normal text-foreground">{section.title}</h2>
+                <p className="mt-5 text-lg leading-8 text-muted-foreground">{section.body}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+        <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+          <p className="section-kicker mb-4">More work</p>
+          <div className="grid border-t border-border md:grid-cols-2">
+            {relatedProjects.map((project) => (
+              <div key={project.title} className="border-b border-border py-8 md:px-8 md:odd:border-r">
+                <p className="text-sm font-bold text-muted-foreground">{project.status}</p>
+                <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-foreground">{project.title}</h2>
+                <p className="mt-4 text-muted-foreground">{project.summary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </article>
+      <CtaSection />
+    </Shell>
+  );
+}
+
 export function AboutPage() {
   return (
     <Shell>
