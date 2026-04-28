@@ -14,7 +14,8 @@ const projects = [
     slug: "fumissolutions",
     image: fumisImage,
     accent: "Product design · IoT platform",
-    summary: "A connected product experience shaped around clarity, system thinking, and practical daily use.",
+    summary:
+      "A connected product experience shaped around clarity, system thinking, and practical daily use.",
     status: "Read case study",
   },
   {
@@ -23,7 +24,8 @@ const projects = [
     slug: "direct2care",
     image: direct2careImage,
     accent: "Healthcare · Patient experience",
-    summary: "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
+    summary:
+      "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
     status: "Read case study",
   },
   {
@@ -32,7 +34,8 @@ const projects = [
     slug: null,
     image: unitedFitnessImage,
     accent: "Wellness · Brand systems",
-    summary: "A wellness brand system focused on motivation, consistency, and a more usable digital presence.",
+    summary:
+      "A wellness brand system focused on motivation, consistency, and a more usable digital presence.",
     status: "Case study in progress",
   },
   {
@@ -41,7 +44,8 @@ const projects = [
     slug: null,
     image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
-    summary: "A service marketplace experience that turns fragmented workflows into clearer product moments.",
+    summary:
+      "A service marketplace experience that turns fragmented workflows into clearer product moments.",
     status: "Case study in progress",
   },
 ];
@@ -132,12 +136,26 @@ function ThemeToggle() {
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
       {theme === "dark" ? (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <circle cx="12" cy="12" r="4" />
           <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
         </svg>
       ) : (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.7 6.7 0 0 0 21 12.8Z" />
         </svg>
       )}
@@ -165,7 +183,12 @@ function Header() {
           <Link to="/contact" className={linkClass} activeOptions={{ exact: true }}>
             Contact
           </Link>
-          <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className={linkClass}>
+          <a
+            href="/Admir_Kurtovic_CV_2026.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className={linkClass}
+          >
             Resume
           </a>
           <ThemeToggle />
@@ -197,7 +220,8 @@ function Hero() {
             <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
               product design
             </span>
-            I blend thoughtful strategy with product design to make experiences that just… make sense
+            I blend thoughtful strategy with product design to make experiences that just… make
+            sense
           </h1>
           <p className="hand-note mt-5 max-w-xs rotate-[3deg] text-muted-foreground sm:ml-auto sm:mr-8 lg:mr-0">
             designing products that feel clear before they ask for effort
@@ -205,8 +229,8 @@ function Hero() {
         </div>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            By blending thoughtful strategy, purposeful design, and user-centered insights, I help shape
-            products that not only function seamlessly but also connect meaningfully.
+            By blending thoughtful strategy, purposeful design, and user-centered insights, I help
+            shape products that not only function seamlessly but also connect meaningfully.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <Link to="/work" className="btn-primary">
@@ -370,7 +394,9 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           <h1 className="max-w-5xl text-balance text-[2.75rem] font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
             {caseStudy.headline}
           </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:mt-8 sm:text-xl sm:leading-9">{caseStudy.context}</p>
+          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:mt-8 sm:text-xl sm:leading-9">
+            {caseStudy.context}
+          </p>
         </section>
         <section className="mx-auto w-full max-w-6xl px-5 pb-14 sm:px-8 sm:pb-16 lg:pb-24">
           <div className="overflow-hidden rounded-[1.25rem] bg-secondary p-2 sm:rounded-[1.8rem] sm:p-3">
@@ -383,9 +409,16 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           </div>
           <div className="mt-10 grid border-t border-border sm:mt-12 lg:grid-cols-3">
             {caseStudy.sections.map((section) => (
-              <section key={section.title} className="border-b border-border py-7 sm:py-8 lg:border-r lg:px-8 lg:last:border-r-0">
-                <h2 className="text-2xl font-bold leading-tight tracking-normal text-foreground sm:text-3xl">{section.title}</h2>
-                <p className="mt-4 text-base leading-8 text-muted-foreground sm:mt-5 sm:text-lg">{section.body}</p>
+              <section
+                key={section.title}
+                className="border-b border-border py-7 sm:py-8 lg:border-r lg:px-8 lg:last:border-r-0"
+              >
+                <h2 className="text-2xl font-bold leading-tight tracking-normal text-foreground sm:text-3xl">
+                  {section.title}
+                </h2>
+                <p className="mt-4 text-base leading-8 text-muted-foreground sm:mt-5 sm:text-lg">
+                  {section.body}
+                </p>
               </section>
             ))}
           </div>
@@ -394,9 +427,14 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           <p className="section-kicker mb-4">More work</p>
           <div className="grid border-t border-border md:grid-cols-2">
             {relatedProjects.map((project) => (
-              <div key={project.title} className="border-b border-border py-8 md:px-8 md:odd:border-r">
+              <div
+                key={project.title}
+                className="border-b border-border py-8 md:px-8 md:odd:border-r"
+              >
                 <p className="text-sm font-bold text-muted-foreground">{project.status}</p>
-                <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-foreground">{project.title}</h2>
+                <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                  {project.title}
+                </h2>
                 <p className="mt-4 text-muted-foreground">{project.summary}</p>
               </div>
             ))}
@@ -438,7 +476,12 @@ export function AboutPage() {
             >
               Connect on LinkedIn
             </a>
-            <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className="btn-secondary mt-2">
+            <a
+              href="/Admir_Kurtovic_CV_2026.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary mt-2"
+            >
               View Resume
             </a>
           </div>
@@ -481,12 +524,15 @@ export function AboutPage() {
                 Leading end-to-end design across marketplace flows.
               </h2>
               <p className="mt-3 text-lg leading-8 text-muted-foreground">
-                Owning Order History, Order Detail, My Services, and quote review flows while building
-                scalable Figma components and translating key UI patterns into production React and HTML.
+                Owning Order History, Order Detail, My Services, and quote review flows while
+                building scalable Figma components and translating key UI patterns into production
+                React and HTML.
               </p>
             </div>
             <div>
-              <p className="text-sm font-bold text-muted-foreground">2024 — 2025 · Social Explorer</p>
+              <p className="text-sm font-bold text-muted-foreground">
+                2024 — 2025 · Social Explorer
+              </p>
               <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
                 Designed accessibility and AI analytics platforms.
               </h2>
@@ -524,7 +570,8 @@ export function ContactPage() {
           Have a product idea that needs more clarity and craft?
         </h1>
         <p className="mt-8 max-w-2xl text-xl leading-9 text-muted-foreground">
-          Let’s chat about shaping it into an experience that connects meaningfully and delivers real value.
+          Let’s chat about shaping it into an experience that connects meaningfully and delivers
+          real value.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a href="mailto:hello@admirkurtovic.com" className="btn-primary">
@@ -538,7 +585,12 @@ export function ContactPage() {
           >
             LinkedIn
           </a>
-          <a href="/Admir_Kurtovic_CV_2026.pdf" target="_blank" rel="noreferrer" className="btn-secondary">
+          <a
+            href="/Admir_Kurtovic_CV_2026.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-secondary"
+          >
             View Resume
           </a>
         </div>
