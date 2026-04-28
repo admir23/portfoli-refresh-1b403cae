@@ -10,28 +10,24 @@ const projects = [
     title: "Fumis Solutions",
     client: "Fumis",
     image: fumisImage,
-    href: "https://admirkurtovic.com/work/fumis",
     accent: "Product design · IoT platform",
   },
   {
     title: "Direct2Care",
     client: "Direct2MD",
     image: direct2careImage,
-    href: "https://admirkurtovic.com/work/direct2md",
     accent: "Healthcare · Patient experience",
   },
   {
     title: "United Fitness",
     client: "United Fitness Brands",
     image: unitedFitnessImage,
-    href: "https://admirkurtovic.com/work/ufb",
     accent: "Wellness · Brand systems",
   },
   {
     title: "Ebgroupp",
     client: "Handwerker Pro",
     image: handwerkerproImage,
-    href: "https://admirkurtovic.com/work/handwerkerpro",
     accent: "SaaS · Service marketplace",
   },
 ];
@@ -51,14 +47,14 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="Admir Kurtovic home">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-sm font-black text-primary-foreground shadow-[var(--shadow-glow)]">
+          <span className="grid h-9 w-9 place-items-center rounded-md bg-foreground text-sm font-black text-background shadow-[var(--shadow-glow)]">
             A
           </span>
           <span className="hidden text-sm font-bold tracking-tight text-foreground sm:block">
             Admir Kurtovic
           </span>
         </Link>
-        <div className="flex items-center gap-1 rounded-full border border-border/70 bg-card/70 p-1 shadow-[var(--shadow-soft)]">
+        <div className="flex items-center gap-1 rounded-lg border border-border/70 bg-card/70 p-1 shadow-[var(--shadow-soft)]">
           <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
             Work
           </Link>
@@ -67,7 +63,7 @@ function Header() {
           </Link>
           <Link
             to="/contact"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition hover:opacity-90"
+            className="rounded-md bg-foreground px-4 py-2 text-sm font-bold text-background transition hover:opacity-90"
             activeOptions={{ exact: true }}
           >
             Contact
