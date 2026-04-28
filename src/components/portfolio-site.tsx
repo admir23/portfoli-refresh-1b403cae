@@ -10,28 +10,24 @@ const projects = [
     title: "Fumis Solutions",
     client: "Fumis",
     image: fumisImage,
-    href: "https://admirkurtovic.com/work/fumis",
     accent: "Product design · IoT platform",
   },
   {
     title: "Direct2Care",
     client: "Direct2MD",
     image: direct2careImage,
-    href: "https://admirkurtovic.com/work/direct2md",
     accent: "Healthcare · Patient experience",
   },
   {
     title: "United Fitness",
     client: "United Fitness Brands",
     image: unitedFitnessImage,
-    href: "https://admirkurtovic.com/work/ufb",
     accent: "Wellness · Brand systems",
   },
   {
     title: "Ebgroupp",
     client: "Handwerker Pro",
     image: handwerkerproImage,
-    href: "https://admirkurtovic.com/work/handwerkerpro",
     accent: "SaaS · Service marketplace",
   },
 ];
@@ -51,14 +47,14 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="Admir Kurtovic home">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-sm font-black text-primary-foreground shadow-[var(--shadow-glow)]">
+          <span className="grid h-9 w-9 place-items-center rounded-md bg-foreground text-sm font-black text-background shadow-[var(--shadow-glow)]">
             A
           </span>
           <span className="hidden text-sm font-bold tracking-tight text-foreground sm:block">
             Admir Kurtovic
           </span>
         </Link>
-        <div className="flex items-center gap-1 rounded-full border border-border/70 bg-card/70 p-1 shadow-[var(--shadow-soft)]">
+        <div className="flex items-center gap-1 rounded-lg border border-border/70 bg-card/70 p-1 shadow-[var(--shadow-soft)]">
           <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
             Work
           </Link>
@@ -67,7 +63,7 @@ function Header() {
           </Link>
           <Link
             to="/contact"
-            className="rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition hover:opacity-90"
+            className="rounded-md bg-foreground px-4 py-2 text-sm font-bold text-background transition hover:opacity-90"
             activeOptions={{ exact: true }}
           >
             Contact
@@ -90,9 +86,8 @@ function Shell({ children }: { children: React.ReactNode }) {
 
 function Hero() {
   return (
-    <section className="relative isolate border-b border-border/70">
-      <div className="absolute inset-0 -z-10 bg-[image:var(--gradient-hero)]" />
-      <div className="absolute right-[-18rem] top-[-16rem] -z-10 h-[36rem] w-[36rem] rounded-full bg-[image:var(--gradient-ribbon)] opacity-80 blur-3xl" />
+    <section className="relative isolate border-b border-border/70 bg-background">
+      <div className="absolute inset-x-0 top-0 -z-10 h-3 bg-primary" />
       <div className="absolute left-1/2 top-0 -z-10 h-full w-px bg-border/70" />
       <div className="mx-auto grid min-h-[calc(100vh-74px)] w-full max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
         <div className="max-w-3xl">
@@ -118,7 +113,7 @@ function Hero() {
           </div>
         </div>
         <div className="relative min-h-[28rem] lg:min-h-[34rem]">
-          <div className="absolute inset-x-4 top-4 h-72 rotate-[-10deg] rounded-[2rem] bg-[image:var(--gradient-ribbon)] opacity-90 shadow-[var(--shadow-glow)] sm:h-96" />
+          <div className="absolute inset-x-4 top-4 h-72 rotate-[-7deg] rounded-3xl bg-[var(--band)] shadow-[var(--shadow-glow)] sm:h-96" />
           <div className="absolute bottom-0 left-0 right-0 mx-auto max-w-md rounded-2xl border border-border/70 bg-card/80 p-4 shadow-[var(--shadow-card)] backdrop-blur-xl">
             <img
               src={fumisImage}
@@ -144,10 +139,7 @@ function Hero() {
 
 function ProjectCard({ project, featured = false }: { project: (typeof projects)[number]; featured?: boolean }) {
   return (
-    <a
-      href={project.href}
-      className={`group block overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] ${featured ? "lg:first:col-span-2" : ""}`}
-    >
+    <article className={`group block overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-card)] ${featured ? "lg:first:col-span-2" : ""}`}>
       <div className="overflow-hidden bg-secondary">
         <img
           src={project.image}
@@ -164,11 +156,11 @@ function ProjectCard({ project, featured = false }: { project: (typeof projects)
           </h2>
           <p className="mt-1 text-muted-foreground">{project.client}</p>
         </div>
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-secondary text-xl text-foreground transition group-hover:bg-primary group-hover:text-primary-foreground">
-          ↗
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-secondary text-xl text-foreground transition group-hover:bg-foreground group-hover:text-background">
+          —
         </span>
       </div>
-    </a>
+    </article>
   );
 }
 
@@ -184,7 +176,7 @@ function WorkGrid({ featured = false }: { featured?: boolean }) {
 
 function CtaSection() {
   return (
-    <section className="border-t border-border/70 bg-[image:var(--gradient-cta)]">
+    <section className="border-t border-border/70 bg-secondary">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8 lg:py-24">
         <h2 className="max-w-2xl text-balance text-4xl font-black leading-tight tracking-normal text-foreground sm:text-5xl">
           Let's start creating <span className="text-gradient">together</span>
@@ -262,7 +254,8 @@ export function WorkPage() {
 export function AboutPage() {
   return (
     <Shell>
-      <section className="relative border-b border-border/70 bg-[image:var(--gradient-hero)]">
+      <section className="relative border-b border-border/70 bg-background">
+        <div className="absolute inset-x-0 top-0 h-3 bg-primary" />
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-24">
           <div>
             <p className="section-kicker">About</p>
@@ -299,8 +292,8 @@ export function AboutPage() {
 export function ContactPage() {
   return (
     <Shell>
-      <section className="relative min-h-[calc(100vh-74px)] border-b border-border/70 bg-[image:var(--gradient-hero)]">
-        <div className="absolute right-[-12rem] top-[-8rem] h-80 w-80 rounded-full bg-[image:var(--gradient-ribbon)] opacity-70 blur-3xl" />
+      <section className="relative min-h-[calc(100vh-74px)] border-b border-border/70 bg-background">
+        <div className="absolute inset-x-0 top-0 h-3 bg-primary" />
         <div className="mx-auto flex w-full max-w-7xl flex-col justify-center px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <p className="section-kicker">Contact</p>
           <h1 className="mt-4 max-w-4xl text-balance text-5xl font-black leading-tight tracking-normal text-foreground sm:text-6xl lg:text-7xl">
