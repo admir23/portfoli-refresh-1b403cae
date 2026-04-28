@@ -161,22 +161,10 @@ function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:bg-secondary"
-      aria-label={`Theme mode: ${theme}. Click to switch theme mode.`}
-      title={`Theme: ${theme}`}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "system" ? (
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          className="h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <rect x="3" y="4" width="18" height="12" rx="2" />
-          <path d="M8 20h8m-4-4v4" />
-        </svg>
-      ) : theme === "dark" ? (
+      {theme === "dark" ? (
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
