@@ -378,18 +378,27 @@ export function AboutPage() {
         <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
           <p className="hand-note max-w-sm rotate-[-2deg] text-muted-foreground">Hi, I'm Admir.</p>
           <p>
-            By blending thoughtful strategy, purposeful design, and user-centered insights, I help
-            shape products that not only function seamlessly but also connect meaningfully.
+            I’m a Senior Product Designer with experience across marketplaces, healthcare,
+            accessibility platforms, AI-powered analytics, telemedicine, and SaaS products.
           </p>
-          <p>Together, we create experiences that engage, inspire, and deliver real value.</p>
-          <a
-            href="https://www.linkedin.com/in/admirkurtovic/"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-primary mt-2"
-          >
-            Connect on LinkedIn
-          </a>
+          <p>
+            My work spans end-to-end product design, research, design systems, testing, and
+            production-aware collaboration—often turning complex workflows into interfaces that feel
+            clearer, faster, and easier to trust.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href="https://www.linkedin.com/in/admirkurtovic/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary mt-2"
+            >
+              Connect on LinkedIn
+            </a>
+            <a href="/Admir_Kurtovic_CV_2026.pdf" download className="btn-secondary mt-2">
+              Download CV
+            </a>
+          </div>
         </div>
       </section>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
