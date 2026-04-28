@@ -146,5 +146,73 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family:
+      ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-ribbon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-primary-foreground);
+    box-shadow: var(--shadow-glow);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: color-mix(in oklab, var(--color-card) 72%, transparent);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--color-foreground);
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+  }
+
+  .section-kicker {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primary);
   }
 }
