@@ -264,7 +264,7 @@ function BottomNavigation() {
 
   return (
     <nav
-      className="fixed inset-x-3 bottom-3 z-50 rounded-full border border-border bg-background/90 p-1 shadow-lg backdrop-blur-md sm:hidden"
+      className="fixed inset-x-3 bottom-3 z-50 rounded-full border border-accent bg-background/90 p-1 shadow-lg ring-1 ring-accent/40 backdrop-blur-md sm:hidden"
       aria-label="Primary navigation"
     >
       <div className="flex items-center gap-1">
