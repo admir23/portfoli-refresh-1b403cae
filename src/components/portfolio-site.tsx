@@ -9,32 +9,83 @@ const projects = [
   {
     title: "Fumis Solutions",
     client: "Fumis",
+    slug: "fumis",
     image: fumisImage,
     accent: "Product design · IoT platform",
     summary: "A connected product experience shaped around clarity, system thinking, and practical daily use.",
+    status: "Read case study",
   },
   {
     title: "Direct2Care",
     client: "Direct2MD",
+    slug: "direct2care",
     image: direct2careImage,
     accent: "Healthcare · Patient experience",
     summary: "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
+    status: "Read case study",
   },
   {
     title: "United Fitness",
     client: "United Fitness Brands",
+    slug: null,
     image: unitedFitnessImage,
     accent: "Wellness · Brand systems",
     summary: "A wellness brand system focused on motivation, consistency, and a more usable digital presence.",
+    status: "Case study in progress",
   },
   {
     title: "Ebgroupp",
     client: "Handwerker Pro",
+    slug: null,
     image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
     summary: "A service marketplace experience that turns fragmented workflows into clearer product moments.",
+    status: "Case study in progress",
   },
 ];
+
+const caseStudyDetails = {
+  fumis: {
+    project: projects[0],
+    headline: "Turning a connected product into a calmer, clearer operating experience.",
+    context:
+      "Fumis needed the product experience to communicate system status, guide everyday workflows, and make a technical IoT platform feel easier to understand.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "The interface had to support complex product signals without making users feel like they were managing complexity. The work focused on hierarchy, state clarity, and repeatable patterns.",
+      },
+      {
+        title: "Approach",
+        body: "I shaped the experience around practical decisions users need to make: what is happening, what needs attention, and what action comes next.",
+      },
+      {
+        title: "Outcome",
+        body: "The resulting direction gives the platform a clearer visual language, stronger product storytelling, and a more confident path for future feature growth.",
+      },
+    ],
+  },
+  direct2care: {
+    project: projects[1],
+    headline: "Making healthcare interactions feel more direct, understandable, and trustworthy.",
+    context:
+      "Direct2Care needed a product experience that could reduce friction around healthcare actions while keeping the interface approachable and dependable.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "Healthcare flows can quickly feel heavy. The core challenge was to simplify decision points and create a sense of momentum without losing trust or clarity.",
+      },
+      {
+        title: "Approach",
+        body: "I focused on clearer information grouping, patient-friendly language, and visual pacing that helps users understand what matters at each step.",
+      },
+      {
+        title: "Outcome",
+        body: "The work establishes a calmer patient experience with stronger guidance, clearer next actions, and a more usable foundation for care-related journeys.",
+      },
+    ],
+  },
+} as const;
 
 const principles = [
   "Thoughtful strategy",
