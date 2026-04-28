@@ -203,20 +203,32 @@ function Header() {
           <img src={admirLogo} alt="Admir Kurtovic logo" className="h-9 w-9 dark:invert" />
         </Link>
         <div className="flex items-center gap-4 sm:gap-8">
-          <Link to="/work" className={linkClass} activeOptions={{ exact: true }}>
+          <Link
+            to="/work"
+            className={`${linkClass} hidden sm:inline-flex`}
+            activeOptions={{ exact: true }}
+          >
             My Work
           </Link>
-          <Link to="/about" className={linkClass} activeOptions={{ exact: true }}>
-            How I Think
+          <Link
+            to="/about"
+            className={`${linkClass} hidden sm:inline-flex`}
+            activeOptions={{ exact: true }}
+          >
+            About
           </Link>
-          <Link to="/contact" className={linkClass} activeOptions={{ exact: true }}>
+          <Link
+            to="/contact"
+            className={`${linkClass} hidden sm:inline-flex`}
+            activeOptions={{ exact: true }}
+          >
             Contact
           </Link>
           <a
             href="/Admir_Kurtovic_CV_2026.pdf"
             target="_blank"
             rel="noreferrer"
-            className={linkClass}
+            className={`${linkClass} hidden sm:inline-flex`}
           >
             Resume
           </a>
@@ -227,12 +239,90 @@ function Header() {
   );
 }
 
+function BottomNavigation() {
+  const linkClass =
+    "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-full px-2 py-2 text-[0.7rem] font-semibold text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground";
+  const iconClass = "h-4 w-4";
+
+  return (
+    <nav
+      className="fixed inset-x-3 bottom-3 z-50 rounded-full border border-border bg-background/90 p-1 shadow-lg backdrop-blur-md sm:hidden"
+      aria-label="Primary navigation"
+    >
+      <div className="flex items-center gap-1">
+        <Link to="/" className={linkClass} activeOptions={{ exact: true }} aria-label="Home">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className={iconClass}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="m3 10 9-7 9 7" />
+            <path d="M5 10v10h14V10" />
+          </svg>
+          Home
+        </Link>
+        <Link to="/work" className={linkClass} activeOptions={{ exact: true }} aria-label="My Work">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className={iconClass}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M4 7h16v13H4z" />
+            <path d="M9 7V4h6v3" />
+          </svg>
+          Work
+        </Link>
+        <Link to="/about" className={linkClass} activeOptions={{ exact: true }} aria-label="About">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className={iconClass}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21a8 8 0 0 1 16 0" />
+          </svg>
+          About
+        </Link>
+        <Link
+          to="/contact"
+          className={linkClass}
+          activeOptions={{ exact: true }}
+          aria-label="Contact"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className={iconClass}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M4 6h16v12H4z" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+          Contact
+        </Link>
+      </div>
+    </nav>
+  );
+}
+
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+    <div className="min-h-screen overflow-x-hidden bg-background pb-24 text-foreground sm:pb-0">
       <Header />
       <main>{children}</main>
       <Footer />
+      <BottomNavigation />
     </div>
   );
 }
