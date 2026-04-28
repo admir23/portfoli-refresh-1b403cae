@@ -83,7 +83,13 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
-        <h1 className="relative mx-auto max-w-5xl text-balance text-[3.4rem] font-black leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
+        <p className="hand-note absolute left-[18%] top-[29%] hidden rotate-[-7deg] text-muted-foreground lg:block">
+          Hi, I'm Admir
+        </p>
+        <p className="hand-note absolute right-[17%] top-[55%] hidden max-w-xs rotate-[4deg] text-muted-foreground lg:block">
+          designing products that feel clear before they ask for effort
+        </p>
+        <h1 className="relative mx-auto max-w-5xl text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
           <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
             product design
           </span>
@@ -113,7 +119,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
     <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
       <div>
         <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-        <h2 className="mt-4 max-w-xl text-balance text-4xl font-black leading-tight tracking-normal text-foreground sm:text-5xl">
+        <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
           {project.title}
         </h2>
         <p className="mt-3 text-sm font-bold text-foreground">{project.accent}</p>
@@ -145,7 +151,7 @@ function CtaSection() {
   return (
     <section className="bg-foreground text-background">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-5 py-16 sm:px-8 md:flex-row md:items-end md:justify-between lg:py-24">
-        <h2 className="max-w-3xl text-balance text-5xl font-black leading-none tracking-normal sm:text-7xl">
+        <h2 className="max-w-3xl text-balance text-5xl font-bold leading-none tracking-normal sm:text-7xl">
           Let's create something that makes sense.
         </h2>
         <a href="mailto:hello@admirkurtovic.com" className="btn-invert md:shrink-0">
@@ -180,7 +186,8 @@ export function HomePage() {
       <Hero />
       <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
         <div className="mb-4">
-          <h2 className="text-5xl font-black leading-none tracking-normal text-foreground sm:text-7xl">
+          <p className="hand-note mb-2 text-muted-foreground">Okay so… how do I do that?</p>
+          <h2 className="text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
             Here’s how
           </h2>
         </div>
@@ -196,7 +203,7 @@ export function WorkPage() {
     <Shell>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
         <p className="section-kicker mb-3">selected work</p>
-        <h1 className="max-w-5xl text-balance text-5xl font-black leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
           Products shaped through strategy, clarity, and craft.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
@@ -218,7 +225,7 @@ export function AboutPage() {
       <section className="mx-auto grid w-full max-w-6xl gap-12 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:pb-24 lg:pt-40">
         <div>
           <p className="section-kicker mb-3">how I think</p>
-          <h1 className="text-balance text-5xl font-black leading-none tracking-normal text-foreground sm:text-7xl">
+          <h1 className="text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
             Design with direction and depth.
           </h1>
         </div>
@@ -235,7 +242,7 @@ export function AboutPage() {
           {principles.map((principle, index) => (
             <div key={principle} className="border-b border-border py-8 md:px-8 md:odd:border-r">
               <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-              <h2 className="mt-8 text-4xl font-black leading-tight tracking-normal text-foreground">
+              <h2 className="mt-8 text-4xl font-bold leading-tight tracking-normal text-foreground">
                 {principle}
               </h2>
             </div>
@@ -252,7 +259,7 @@ export function ContactPage() {
     <Shell>
       <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-5 py-32 sm:px-8">
         <p className="section-kicker mb-3">contact</p>
-        <h1 className="max-w-5xl text-balance text-5xl font-black leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
           Have a product idea that needs more clarity and craft?
         </h1>
         <p className="mt-8 max-w-2xl text-xl leading-9 text-muted-foreground">
