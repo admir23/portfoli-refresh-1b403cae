@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 
 import admirLogo from "../assets/admir-kurtovic-logo.svg";
 import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
 
 const projects = [
   {
@@ -224,6 +232,13 @@ function Header() {
           >
             Contact
           </Link>
+          <Link
+            to="/playground"
+            className={`${linkClass} hidden sm:inline-flex`}
+            activeOptions={{ exact: true }}
+          >
+            Playground
+          </Link>
           <a
             href="/Admir_Kurtovic_CV_2026.pdf"
             target="_blank"
@@ -240,8 +255,11 @@ function Header() {
 }
 
 function BottomNavigation() {
+  const location = useLocation();
+  const moreIsActive = location.pathname === "/contact" || location.pathname === "/playground";
   const linkClass =
     "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-full px-2 py-2 text-[0.7rem] font-semibold text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground";
+  const moreButtonClass = `${linkClass} ${moreIsActive ? "bg-secondary text-foreground" : ""}`;
   const iconClass = "h-4 w-4";
 
   return (
@@ -292,25 +310,42 @@ function BottomNavigation() {
           </svg>
           About
         </Link>
-        <Link
-          to="/contact"
-          className={linkClass}
-          activeOptions={{ exact: true }}
-          aria-label="Contact"
-        >
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            className={iconClass}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M4 6h16v12H4z" />
-            <path d="m4 7 8 6 8-6" />
-          </svg>
-          Contact
-        </Link>
+        <Drawer>
+          <DrawerTrigger className={moreButtonClass} aria-label="More navigation options">
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className={iconClass}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="5" cy="12" r="1.5" />
+              <circle cx="12" cy="12" r="1.5" />
+              <circle cx="19" cy="12" r="1.5" />
+            </svg>
+            More
+          </DrawerTrigger>
+          <DrawerContent className="sm:hidden">
+            <DrawerHeader>
+              <DrawerTitle>More</DrawerTitle>
+            </DrawerHeader>
+            <div className="grid gap-2 px-4 pb-6">
+              <DrawerClose asChild>
+                <Link to="/contact" className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground">
+                  Contact
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </DrawerClose>
+              <DrawerClose asChild>
+                <Link to="/playground" className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground">
+                  Playground
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </DrawerClose>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </nav>
   );
@@ -450,6 +485,7 @@ function Footer() {
           <Link to="/work">Work</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/playground">Playground</Link>
           <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
@@ -716,6 +752,38 @@ export function ContactPage() {
           </a>
         </div>
       </section>
+    </Shell>
+  );
+}
+
+export function PlaygroundPage() {
+  const experiments = ["Interaction studies", "Prototype sketches", "Interface details"];
+
+  return (
+    <Shell>
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
+        <p className="section-kicker mb-3">playground</p>
+        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+          Small experiments for product ideas, motion, and interface craft.
+        </h1>
+        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+          A place for explorations that test how a product could feel before it becomes a full case study.
+        </p>
+        <div className="mt-14 grid border-t border-border md:grid-cols-3">
+          {experiments.map((experiment, index) => (
+            <article key={experiment} className="border-b border-border py-8 md:px-8 md:first:border-r md:last:border-l">
+              <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+              <h2 className="mt-8 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                {experiment}
+              </h2>
+              <p className="mt-4 leading-7 text-muted-foreground">
+                Early thinking, visual direction, and product patterns shaped through quick iteration.
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <CtaSection />
     </Shell>
   );
 }
