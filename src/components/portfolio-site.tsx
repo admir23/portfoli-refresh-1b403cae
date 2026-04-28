@@ -406,20 +406,52 @@ export function AboutPage() {
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Focus</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Product strategy, UX systems, and interface craft.
+              Marketplace flows, healthcare tools, AI products, and design systems.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Approach</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Make complex workflows feel simple without losing meaning.
+              Research, testing, Figma systems, and close design-to-development collaboration.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:px-8">
-            <p className="section-kicker">Outcome</p>
+            <p className="section-kicker">Tools</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Digital products that are useful, usable, and easier to trust.
+              Figma, Framer, Storybook, Miro, Lottie, HTML/CSS, and AI-assisted workflows.
             </h2>
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 sm:px-8 lg:pb-24">
+        <div className="grid gap-10 border-t border-border py-10 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p className="section-kicker">Recent experience</p>
+            <p className="hand-note mt-4 max-w-xs rotate-[2deg] text-muted-foreground">
+              designing systems that ship
+            </p>
+          </div>
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm font-bold text-muted-foreground">2025 — Present · LawnGuru</p>
+              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                Leading end-to-end design across marketplace flows.
+              </h2>
+              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+                Owning Order History, Order Detail, My Services, and quote review flows while building
+                scalable Figma components and translating key UI patterns into production React and HTML.
+              </p>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-muted-foreground">2024 — 2025 · Social Explorer</p>
+              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                Designed accessibility and AI analytics platforms.
+              </h2>
+              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+                Worked on AARP’s accessibility platform for older adults and Signal Aviation, an
+                AI-powered platform that helps airlines identify high-potential markets.
+              </p>
+            </div>
           </div>
         </div>
       </section>
