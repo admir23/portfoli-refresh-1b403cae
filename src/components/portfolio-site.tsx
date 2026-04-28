@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 
 import admirLogo from "../assets/admir-kurtovic-logo.svg";
 import direct2careImage from "../assets/direct2care.png";
@@ -8,7 +8,6 @@ import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
