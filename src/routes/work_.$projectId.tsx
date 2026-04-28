@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 
 import { CaseStudyPage, getCaseStudyMeta } from "../components/portfolio-site";
 
-export const Route = createFileRoute("/work/$projectId")({
+export const Route = createFileRoute("/work_/$projectId")({
   loader: ({ params }) => {
     const meta = getCaseStudyMeta(params.projectId);
 
