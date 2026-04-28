@@ -117,7 +117,7 @@ export function getCaseStudyMeta(projectId: string) {
 const principles = [
   "Thoughtful strategy",
   "Purposeful design",
-  "User-centered insights",
+  "User centered insights",
   "Products that deliver value",
 ];
 
@@ -621,7 +621,7 @@ export function AboutPage() {
           </p>
           <p>
             My work spans end-to-end product design, research, design systems, testing, and
-            production-aware collaboration—often turning complex workflows into interfaces that feel
+            production aware collaboration, often turning complex workflows into interfaces that feel
             clearer, faster, and easier to trust.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -655,13 +655,13 @@ export function AboutPage() {
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Approach</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Research, testing, Figma systems, and close design-to-development collaboration.
+              Research, testing, Figma systems, and close design to development collaboration.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:px-8">
             <p className="section-kicker">Tools</p>
             <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
-              Figma, Framer, Storybook, Miro, Lottie, HTML/CSS, and AI-assisted workflows.
+              Figma, Framer, Storybook, Miro, Lottie, HTML/CSS, and AI assisted workflows.
             </h2>
           </div>
         </div>
@@ -676,9 +676,9 @@ export function AboutPage() {
           </div>
           <div className="space-y-8">
             <div>
-              <p className="text-sm font-bold text-muted-foreground">2025 — Present · LawnGuru</p>
+              <p className="text-sm font-bold text-muted-foreground">2025 to Present · LawnGuru</p>
               <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
-                Leading end-to-end design across marketplace flows.
+                Leading full product design across marketplace flows.
               </h2>
               <p className="mt-3 text-lg leading-8 text-muted-foreground">
                 Owning Order History, Order Detail, My Services, and quote review flows while
@@ -688,7 +688,7 @@ export function AboutPage() {
             </div>
             <div>
               <p className="text-sm font-bold text-muted-foreground">
-                2024 — 2025 · Social Explorer
+                2024 to 2025 · Social Explorer
               </p>
               <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
                 Designed accessibility and AI analytics platforms.
@@ -765,7 +765,7 @@ export function PlaygroundPage() {
           Side projects, useful ideas, and experiments that started with a real problem.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-          A place for smaller builds and product explorations—some polished, some scrappy, all shaped
+          A place for smaller builds and product explorations. Some polished, some scrappy, all shaped
           around learning by making.
         </p>
         <article className="mt-14 border-t border-border py-10">
@@ -773,17 +773,17 @@ export function PlaygroundPage() {
             <div>
               <p className="text-sm font-black text-muted-foreground">01</p>
               <h2 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
-                CFS Open — internal CrossFit competition tracker
+                CFS Open, an internal CrossFit competition tracker
               </h2>
               <p className="mt-4 text-sm font-bold text-foreground">
-                Side project · Product design · AI-assisted build
+                Side project · Product design · AI assisted build
               </p>
             </div>
             <div className="space-y-6 text-lg leading-8 text-muted-foreground">
               <p>
                 This started with a friend at Community Fitness Sarajevo, where the box runs an
-                internal Open-style competition every year. The energy was there, the workouts were
-                there, and members loved competing—but tracking scores, organizing workouts, and
+                internal Open style competition every year. The energy was there, the workouts were
+                there, and members loved competing. But tracking scores, organizing workouts, and
                 sharing results kept turning into manual work.
               </p>
               <p>
