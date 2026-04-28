@@ -117,7 +117,10 @@ type ThemeMode = "system" | "light" | "dark";
 
 function applyTheme(theme: ThemeMode) {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.classList.toggle("dark", theme === "dark" || (theme === "system" && prefersDark));
+  document.documentElement.classList.toggle(
+    "dark",
+    theme === "dark" || (theme === "system" && prefersDark),
+  );
 }
 
 function ThemeToggle() {
@@ -125,7 +128,8 @@ function ThemeToggle() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const initialTheme: ThemeMode = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "system";
+    const initialTheme: ThemeMode =
+      savedTheme === "light" || savedTheme === "dark" ? savedTheme : "system";
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     setTheme(initialTheme);
@@ -143,7 +147,8 @@ function ThemeToggle() {
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme: ThemeMode = theme === "system" ? "light" : theme === "light" ? "dark" : "system";
+    const nextTheme: ThemeMode =
+      theme === "system" ? "light" : theme === "light" ? "dark" : "system";
     applyTheme(nextTheme);
     localStorage.setItem("theme", nextTheme);
     setTheme(nextTheme);
