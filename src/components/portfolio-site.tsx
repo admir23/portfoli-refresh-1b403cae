@@ -6,6 +6,14 @@ import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./ui/drawer";
 
 const projects = [
   {
@@ -223,6 +231,13 @@ function Header() {
             activeOptions={{ exact: true }}
           >
             Contact
+          </Link>
+          <Link
+            to="/playground"
+            className={`${linkClass} hidden sm:inline-flex`}
+            activeOptions={{ exact: true }}
+          >
+            Playground
           </Link>
           <a
             href="/Admir_Kurtovic_CV_2026.pdf"
