@@ -236,8 +236,15 @@
     transform-origin: 30% 70%;
   }
 
+  .hand-note-float-right {
+    animation: hand-note-float-right 5.4s ease-in-out infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .hand-note-float {
+    .hand-note-float,
+    .hand-note-float-right {
       animation: none;
     }
   }
@@ -250,6 +257,17 @@
 
     50% {
       transform: rotate(-3deg) translateY(-5px);
+    }
+  }
+
+  @keyframes hand-note-float-right {
+    0%,
+    100% {
+      transform: rotate(3deg) translateY(0);
+    }
+
+    50% {
+      transform: rotate(6deg) translateY(-6px);
     }
   }
 
