@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 
 import admirLogo from "../assets/admir-kurtovic-logo.svg";
@@ -419,6 +419,29 @@ function Hero() {
 }
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const revealClass = `project-card-reveal${visible ? " project-card-reveal--in" : ""}`;
+
   const content = (
     <>
       <div>
@@ -450,7 +473,9 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
       <Link
         to="/work/$projectId"
         params={{ projectId: project.slug }}
-        className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10"
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        style={{ transitionDelay: `${index * 90}ms` }}
+        className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
       >
         {content}
       </Link>
@@ -458,7 +483,11 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   }
 
   return (
-    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+    <article
+      ref={ref as React.Ref<HTMLElement>}
+      style={{ transitionDelay: `${index * 90}ms` }}
+      className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
+    >
       {content}
     </article>
   );
