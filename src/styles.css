@@ -351,4 +351,31 @@
     opacity: 0.9;
     transform: translateY(-1px);
   }
+
+  .portrait-frame {
+    overflow: hidden;
+    border-radius: 9999px;
+    background: var(--color-secondary);
+    box-shadow:
+      0 0 0 3px var(--color-background),
+      0 0 0 5px var(--color-hand-accent),
+      var(--shadow-card);
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .portrait-frame--tilt {
+    transform: rotate(-4deg);
+  }
+
+  .portrait-frame--tilt:hover {
+    transform: rotate(0deg) scale(1.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portrait-frame--tilt,
+    .portrait-frame--tilt:hover {
+      transform: none;
+      transition: none;
+    }
+  }
 }
