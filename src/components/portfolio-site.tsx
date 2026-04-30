@@ -332,13 +332,19 @@ function BottomNavigation() {
             </DrawerHeader>
             <div className="grid gap-2 px-4 pb-6">
               <DrawerClose asChild>
-                <Link to="/contact" className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground">
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground"
+                >
                   Contact
                   <span aria-hidden="true">→</span>
                 </Link>
               </DrawerClose>
               <DrawerClose asChild>
-                <Link to="/playground" className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground">
+                <Link
+                  to="/playground"
+                  className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground"
+                >
                   Playground
                   <span aria-hidden="true">→</span>
                 </Link>
@@ -621,8 +627,8 @@ export function AboutPage() {
           </p>
           <p>
             My work spans end-to-end product design, research, design systems, testing, and
-            production aware collaboration, often turning complex workflows into interfaces that feel
-            clearer, faster, and easier to trust.
+            production aware collaboration, often turning complex workflows into interfaces that
+            feel clearer, faster, and easier to trust.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
@@ -765,8 +771,8 @@ export function PlaygroundPage() {
           Side projects, useful ideas, and experiments that started with a real problem.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-          A place for smaller builds and product explorations. Some polished, some scrappy, all shaped
-          around learning by making.
+          A place for smaller builds and product explorations. Some polished, some scrappy, all
+          shaped around learning by making.
         </p>
         <article className="mt-14 border-t border-border py-10">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
