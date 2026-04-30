@@ -375,7 +375,7 @@ function Hero() {
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="relative mx-auto max-w-5xl">
-          <p className="hand-note hand-note-float mb-3 ml-1 rotate-[-6deg] text-muted-foreground sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
+          <p className="hand-note hand-note-float mb-3 ml-1 rotate-[-6deg] sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
             Hi, I'm Admir
           </p>
           <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
@@ -395,7 +395,7 @@ function Hero() {
                 </span>
               ))}
           </h1>
-          <p className="hand-note mt-5 max-w-xs rotate-[3deg] text-muted-foreground sm:ml-auto sm:mr-8 lg:mr-0">
+          <p className="hand-note mt-5 max-w-xs rotate-[3deg] sm:ml-auto sm:mr-8 lg:mr-0">
             designing products that feel clear before they ask for effort
           </p>
         </div>
@@ -546,7 +546,7 @@ export function HomePage() {
       <Hero />
       <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
         <div className="mb-4">
-          <p className="hand-note mb-2 text-muted-foreground">Okay so… how do I do that?</p>
+          <p className="hand-note mb-2">Okay so… how do I do that?</p>
           <h2 className="text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
             Here’s how
           </h2>
@@ -590,7 +590,7 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           <Link to="/work" className="section-kicker mb-6 inline-block">
             ← Back to work
           </Link>
-          <p className="hand-note mb-3 max-w-[12rem] rotate-[-3deg] text-muted-foreground sm:absolute sm:right-8 sm:top-36 sm:max-w-[14rem] sm:rotate-[4deg] lg:right-16">
+          <p className="hand-note mb-3 max-w-[12rem] rotate-[-3deg] sm:absolute sm:right-8 sm:top-36 sm:max-w-[14rem] sm:rotate-[4deg] lg:right-16">
             {caseStudy.project.client} · {caseStudy.project.accent}
           </p>
           <h1 className="max-w-5xl text-balance text-[2.75rem] font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
@@ -659,7 +659,7 @@ export function AboutPage() {
           </h1>
         </div>
         <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
-          <p className="hand-note max-w-sm rotate-[-2deg] text-muted-foreground">Hi, I'm Admir.</p>
+          <p className="hand-note max-w-sm rotate-[-2deg]">Hi, I'm Admir.</p>
           <p>
             I’m a Senior Product Designer with experience across marketplaces, healthcare,
             accessibility platforms, AI-powered analytics, telemedicine, and SaaS products.
@@ -715,7 +715,7 @@ export function AboutPage() {
         <div className="grid gap-10 border-t border-border py-10 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
             <p className="section-kicker">Recent experience</p>
-            <p className="hand-note mt-4 max-w-xs rotate-[2deg] text-muted-foreground">
+            <p className="hand-note mt-4 max-w-xs rotate-[2deg]">
               designing systems that ship
             </p>
           </div>
