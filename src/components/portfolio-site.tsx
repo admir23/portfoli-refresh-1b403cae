@@ -388,7 +388,7 @@ function Hero() {
                 <span
                   key={i}
                   className="hero-word inline-block"
-                  style={{ animationDelay: `${i * 70}ms` }}
+                  style={{ animationDelay: `${i * 140}ms` }}
                 >
                   {word}
                   {i < 14 ? "\u00A0" : ""}
