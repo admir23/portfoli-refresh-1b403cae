@@ -473,7 +473,9 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
       <Link
         to="/work/$projectId"
         params={{ projectId: project.slug }}
-        className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10"
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        style={{ transitionDelay: `${index * 90}ms` }}
+        className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
       >
         {content}
       </Link>
@@ -481,7 +483,11 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   }
 
   return (
-    <article className="group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10">
+    <article
+      ref={ref as React.Ref<HTMLElement>}
+      style={{ transitionDelay: `${index * 90}ms` }}
+      className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
+    >
       {content}
     </article>
   );
