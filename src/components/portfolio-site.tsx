@@ -678,7 +678,17 @@ export function AboutPage() {
           </h1>
         </div>
         <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
-          <p className="hand-note max-w-sm rotate-[-2deg]">Hi, I'm Admir.</p>
+          <div className="flex items-center gap-5">
+            <div className="portrait-frame portrait-frame--tilt h-24 w-24 shrink-0 sm:h-28 sm:w-28">
+              <img
+                src={admirPortrait}
+                alt="Portrait of Admir Kurtovic"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <p className="hand-note rotate-[-2deg]">Hi, I'm Admir.</p>
+          </div>
           <p>
             I’m a Senior Product Designer with experience across marketplaces, healthcare,
             accessibility platforms, AI-powered analytics, telemedicine, and SaaS products.
