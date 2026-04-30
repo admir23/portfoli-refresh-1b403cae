@@ -369,7 +369,7 @@ function Hero() {
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="relative mx-auto max-w-5xl">
-          <p className="hand-note mb-3 ml-1 rotate-[-6deg] text-muted-foreground sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
+          <p className="hand-note hand-note-float mb-3 ml-1 rotate-[-6deg] text-muted-foreground sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
             Hi, I'm Admir
           </p>
           <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
