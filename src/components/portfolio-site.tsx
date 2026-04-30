@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 
 import admirLogo from "../assets/admir-kurtovic-logo.svg";
+import admirPortrait from "../assets/admir-portrait.jpg";
 import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
