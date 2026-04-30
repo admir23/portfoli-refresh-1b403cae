@@ -306,6 +306,31 @@
     }
   }
 
+  .project-tilt {
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-tilt--left {
+    transform: rotate(-2.2deg);
+  }
+
+  .project-tilt--right {
+    transform: rotate(2.2deg);
+  }
+
+  .group:hover .project-tilt {
+    transform: rotate(0deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-tilt,
+    .project-tilt--left,
+    .project-tilt--right {
+      transform: none;
+      transition: none;
+    }
+  }
+
   .btn-invert {
     display: inline-flex;
     min-height: 3rem;
