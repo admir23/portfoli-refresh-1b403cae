@@ -404,7 +404,7 @@ function Hero() {
                 </span>
               ))}
           </h1>
-          <p className="hand-note hand-note-float-right mt-5 ml-auto max-w-xs text-right">
+          <p className="hand-note mt-5 max-w-xs rotate-[3deg] sm:ml-auto sm:mr-8 lg:mr-0">
             designing products that feel clear before they ask for effort
           </p>
         </div>
