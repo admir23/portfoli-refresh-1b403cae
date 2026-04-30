@@ -208,14 +208,7 @@ function Header() {
     <header className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
         <Link to="/" className="block" aria-label="Admir Kurtovic home">
-          <span
-            aria-hidden="true"
-            className="block h-9 w-9 bg-hand-accent"
-            style={{
-              WebkitMask: `url(${admirLogo}) center / contain no-repeat`,
-              mask: `url(${admirLogo}) center / contain no-repeat`,
-            }}
-          />
+          <img src={admirLogo} alt="Admir Kurtovic logo" className="h-9 w-9 dark:invert" />
         </Link>
         <div className="flex items-center gap-4 sm:gap-8">
           <Link
@@ -406,12 +399,12 @@ function Hero() {
             designing products that feel clear before they ask for effort
           </p>
         </div>
-        <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
           <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
             By blending thoughtful strategy, purposeful design, and user centered insights, I help
             shape products that not only function seamlessly but also connect meaningfully.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-shrink-0">
+          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <Link to="/work" className="btn-primary">
               My Work
             </Link>
