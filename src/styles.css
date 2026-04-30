@@ -219,6 +219,28 @@
     line-height: 1.35;
   }
 
+  .hand-note-float {
+    animation: hand-note-float 4.8s ease-in-out infinite;
+    transform-origin: 30% 70%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hand-note-float {
+      animation: none;
+    }
+  }
+
+  @keyframes hand-note-float {
+    0%,
+    100% {
+      transform: rotate(-6deg) translateY(0);
+    }
+
+    50% {
+      transform: rotate(-3deg) translateY(-5px);
+    }
+  }
+
   .btn-invert {
     display: inline-flex;
     min-height: 3rem;
