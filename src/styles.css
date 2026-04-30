@@ -62,7 +62,6 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-
 :root {
   --radius: 1.25rem;
   --background: oklch(0.973 0.006 82);
@@ -101,7 +100,6 @@
   --shadow-card: 0 26px 68px -42px oklch(0.245 0.004 285 / 36%);
   --shadow-glow: none;
 }
-
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -146,7 +144,13 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
     letter-spacing: 0;
   }
 
@@ -176,7 +180,9 @@
     font-weight: 900;
     color: var(--color-background);
     box-shadow: var(--shadow-glow);
-    transition: opacity 180ms ease, transform 180ms ease;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
   }
 
   .btn-primary:hover {
@@ -197,7 +203,9 @@
     font-size: 0.95rem;
     font-weight: 900;
     color: var(--color-foreground);
-    transition: background-color 180ms ease, transform 180ms ease;
+    transition:
+      background-color 180ms ease,
+      transform 180ms ease;
   }
 
   .btn-secondary:hover {
@@ -219,6 +227,28 @@
     line-height: 1.35;
   }
 
+  .hand-note-float {
+    animation: hand-note-float 4.8s ease-in-out infinite;
+    transform-origin: 30% 70%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hand-note-float {
+      animation: none;
+    }
+  }
+
+  @keyframes hand-note-float {
+    0%,
+    100% {
+      transform: rotate(-6deg) translateY(0);
+    }
+
+    50% {
+      transform: rotate(-3deg) translateY(-5px);
+    }
+  }
+
   .btn-invert {
     display: inline-flex;
     min-height: 3rem;
@@ -230,7 +260,9 @@
     font-size: 0.95rem;
     font-weight: 900;
     color: var(--color-foreground);
-    transition: opacity 180ms ease, transform 180ms ease;
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease;
   }
 
   .btn-invert:hover {
