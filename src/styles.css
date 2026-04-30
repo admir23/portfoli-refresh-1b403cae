@@ -228,6 +228,7 @@
     font-family: "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive;
     font-size: 1.05rem;
     line-height: 1.35;
+    color: var(--color-hand-accent);
   }
 
   .hand-note-float {
