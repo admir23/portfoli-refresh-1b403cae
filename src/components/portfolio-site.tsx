@@ -208,14 +208,7 @@ function Header() {
     <header className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
         <Link to="/" className="block" aria-label="Admir Kurtovic home">
-          <span
-            aria-hidden="true"
-            className="block h-9 w-9 bg-hand-accent"
-            style={{
-              WebkitMask: `url(${admirLogo}) center / contain no-repeat`,
-              mask: `url(${admirLogo}) center / contain no-repeat`,
-            }}
-          />
+          <img src={admirLogo} alt="Admir Kurtovic logo" className="h-9 w-9 dark:invert" />
         </Link>
         <div className="flex items-center gap-4 sm:gap-8">
           <Link
