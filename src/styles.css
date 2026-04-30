@@ -365,22 +365,10 @@
 
   .portrait-frame--tilt {
     transform: rotate(-4deg);
-    animation: portrait-float 6s ease-in-out infinite;
   }
 
   .portrait-frame--tilt:hover {
     transform: rotate(0deg) scale(1.04);
-    animation-play-state: paused;
-  }
-
-  @keyframes portrait-float {
-    0%,
-    100% {
-      transform: rotate(-4deg) translateY(0);
-    }
-    50% {
-      transform: rotate(-2deg) translateY(-6px);
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -388,7 +376,6 @@
     .portrait-frame--tilt:hover {
       transform: none;
       transition: none;
-      animation: none;
     }
   }
 }
