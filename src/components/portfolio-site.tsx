@@ -441,32 +441,50 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   }, []);
 
   const revealClass = `project-card-reveal${visible ? " project-card-reveal--in" : ""}`;
+  const imageFirst = index % 2 === 0;
+  const tiltClass = imageFirst ? "project-tilt project-tilt--left" : "project-tilt project-tilt--right";
+
+  const textBlock = (
+    <div className={imageFirst ? "md:order-2" : "md:order-1"}>
+      <div className="flex flex-wrap items-center gap-3">
+        <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
+        <span className="rounded-full border border-border px-3 py-1 text-xs font-bold text-muted-foreground">
+          {project.status}
+        </span>
+      </div>
+      <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
+        {project.title}
+      </h2>
+      <p className="mt-3 text-sm font-bold text-foreground">{project.accent}</p>
+      <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">{project.summary}</p>
+    </div>
+  );
+
+  const imageBlock = (
+    <div
+      className={`overflow-hidden rounded-[1.6rem] bg-secondary p-3 ${tiltClass} ${
+        imageFirst ? "md:order-1" : "md:order-2"
+      }`}
+    >
+      <img
+        src={project.image}
+        alt={`${project.title} project preview for ${project.client}`}
+        className="aspect-[16/10] w-full rounded-[1.1rem] object-cover transition duration-500 group-hover:scale-[1.02]"
+        loading="lazy"
+      />
+    </div>
+  );
 
   const content = (
     <>
-      <div>
-        <div className="flex flex-wrap items-center gap-3">
-          <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-          <span className="rounded-full border border-border px-3 py-1 text-xs font-bold text-muted-foreground">
-            {project.status}
-          </span>
-        </div>
-        <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
-          {project.title}
-        </h2>
-        <p className="mt-3 text-sm font-bold text-foreground">{project.accent}</p>
-        <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">{project.summary}</p>
-      </div>
-      <div className="overflow-hidden rounded-[1.6rem] bg-secondary p-3">
-        <img
-          src={project.image}
-          alt={`${project.title} project preview for ${project.client}`}
-          className="aspect-[16/10] w-full rounded-[1.1rem] object-cover transition duration-500 group-hover:scale-[1.02]"
-          loading="lazy"
-        />
-      </div>
+      {textBlock}
+      {imageBlock}
     </>
   );
+
+  const gridClass = imageFirst
+    ? "group grid gap-6 border-t border-border py-10 md:grid-cols-[1fr_0.62fr] md:items-center md:gap-10"
+    : "group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10";
 
   if (project.slug) {
     return (
@@ -475,7 +493,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
         params={{ projectId: project.slug }}
         ref={ref as React.Ref<HTMLAnchorElement>}
         style={{ transitionDelay: `${index * 90}ms` }}
-        className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
+        className={`${gridClass} ${revealClass}`}
       >
         {content}
       </Link>
@@ -486,7 +504,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
     <article
       ref={ref as React.Ref<HTMLElement>}
       style={{ transitionDelay: `${index * 90}ms` }}
-      className={`group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10 ${revealClass}`}
+      className={`${gridClass} ${revealClass}`}
     >
       {content}
     </article>
