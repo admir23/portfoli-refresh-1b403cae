@@ -382,8 +382,18 @@ function Hero() {
             <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
               product design
             </span>
-            I blend thoughtful strategy with product design to make experiences that just… make
-            sense
+            {"I blend thoughtful strategy with product design to make experiences that just… make sense"
+              .split(" ")
+              .map((word, i) => (
+                <span
+                  key={i}
+                  className="hero-word inline-block"
+                  style={{ animationDelay: `${i * 70}ms` }}
+                >
+                  {word}
+                  {i < 14 ? "\u00A0" : ""}
+                </span>
+              ))}
           </h1>
           <p className="hand-note mt-5 max-w-xs rotate-[3deg] text-muted-foreground sm:ml-auto sm:mr-8 lg:mr-0">
             designing products that feel clear before they ask for effort
