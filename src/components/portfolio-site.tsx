@@ -376,9 +376,17 @@ function Hero() {
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
         <div className="relative mx-auto max-w-5xl">
-          <p className="hand-note hand-note-float mb-3 ml-1 rotate-[-6deg] sm:mb-4 lg:absolute lg:-left-9 lg:-top-8 lg:mb-0">
-            Hi, I'm Admir
-          </p>
+          <div className="mb-3 ml-1 flex items-center gap-3 sm:mb-4 lg:absolute lg:-left-28 lg:-top-10 lg:mb-0 lg:flex-col lg:items-start lg:gap-2">
+            <div className="portrait-frame portrait-frame--tilt h-14 w-14 shrink-0 sm:h-16 sm:w-16">
+              <img
+                src={admirPortrait}
+                alt="Portrait of Admir Kurtovic"
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <p className="hand-note hand-note-float rotate-[-6deg]">Hi, I'm Admir</p>
+          </div>
           <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
             <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
               product design
