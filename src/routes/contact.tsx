@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { ContactPage } from "../components/portfolio-site";
 
+const SITE_URL = "https://admirkurtovic.com";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -15,7 +17,9 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Start a conversation with Admir Kurtovic about product strategy and design.",
       },
+      { property: "og:url", content: `${SITE_URL}/contact` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/contact` }],
   }),
   component: ContactPage,
 });
