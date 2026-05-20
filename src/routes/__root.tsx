@@ -33,28 +33,20 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Portfolio of Admir Kurtovic, crafting impactful products through strategy and design.",
+          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
       },
       { name: "author", content: "Admir Kurtovic" },
+      { property: "og:site_name", content: "Admir Kurtovic" },
+      { property: "og:type", content: "website" },
       { property: "og:title", content: "Admir Kurtovic, Product Designer" },
       {
         property: "og:description",
-        content: "Selected product design work by Admir Kurtovic.",
+        content:
+          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
       },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Admir_Kurtovic" },
       { name: "twitter:title", content: "Admir Kurtovic, Product Designer" },
-      {
-        name: "description",
-        content:
-          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
-      },
-      {
-        property: "og:description",
-        content:
-          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
-      },
       {
         name: "twitter:description",
         content:
