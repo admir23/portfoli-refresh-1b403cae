@@ -1,0 +1,16 @@
+# Admir Kurtovic
+
+> Portfolio of Admir Kurtovic, Senior Product Designer based in Sarajevo, crafting useful products through strategy, purposeful design, and user-centered insights.
+
+## Pages
+
+- [Home](/): Intro, featured work, and contact CTA.
+- [Work](/work): Selected product design case studies.
+- [About](/about): Background, approach, and design principles.
+- [Contact](/contact): Get in touch to start a project.
+- [Playground](/playground): Design experiments and explorations.
+
+## Case studies
+
+- [Fumis Solutions](/work/fumissolutions): Connected IoT product experience focused on clarity and daily use.
+- [Direct2Care](/work/direct2care): Healthcare patient flow designed to feel calmer and easier to trust.
