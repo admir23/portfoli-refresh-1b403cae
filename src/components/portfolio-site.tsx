@@ -382,8 +382,12 @@ function Hero() {
                 src={admirPortrait}
                 alt="Portrait of Admir Kurtovic"
                 className="h-full w-full object-cover"
+                width={64}
+                height={64}
                 loading="eager"
+                fetchPriority="high"
               />
+
             </div>
             <p className="hand-note hand-note-float rotate-[-6deg]">Hi, I'm Admir</p>
           </div>
