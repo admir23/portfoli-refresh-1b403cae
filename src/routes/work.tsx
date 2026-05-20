@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { WorkPage } from "../components/portfolio-site";
 
+const SITE_URL = "https://admirkurtovic.com";
+
 export const Route = createFileRoute("/work")({
   head: () => ({
     meta: [
@@ -15,7 +17,9 @@ export const Route = createFileRoute("/work")({
         property: "og:description",
         content: "Explore Fumis Solutions, Direct2Care, United Fitness, and Handwerker Pro.",
       },
+      { property: "og:url", content: `${SITE_URL}/work` },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/work` }],
   }),
   component: WorkPage,
 });
