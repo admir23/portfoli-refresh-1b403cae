@@ -36,6 +36,7 @@ export const Route = createRootRoute({
           "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
       },
       { name: "author", content: "Admir Kurtovic" },
+      { name: "google-site-verification", content: "JI7smr83Xulq2ihQ8EVuD2iU4YN_opf1rKagJMi_FCo" },
       { property: "og:site_name", content: "Admir Kurtovic" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Admir Kurtovic, Product Designer" },
