@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WorkRouteImport } from './routes/work'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PlaygroundRouteImport } from './routes/playground'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -19,6 +20,11 @@ import { Route as WorkProjectIdRouteImport } from './routes/work_.$projectId'
 const WorkRoute = WorkRouteImport.update({
   id: '/work',
   path: '/work',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlaygroundRoute = PlaygroundRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/playground': typeof PlaygroundRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/work/$projectId': typeof WorkProjectIdRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/playground': typeof PlaygroundRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/work/$projectId': typeof WorkProjectIdRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/playground': typeof PlaygroundRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/work': typeof WorkRoute
   '/work_/$projectId': typeof WorkProjectIdRoute
 }
@@ -79,16 +88,25 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/playground'
+    | '/sitemap.xml'
     | '/work'
     | '/work/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/playground' | '/work' | '/work/$projectId'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/playground'
+    | '/sitemap.xml'
+    | '/work'
+    | '/work/$projectId'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/playground'
+    | '/sitemap.xml'
     | '/work'
     | '/work_/$projectId'
   fileRoutesById: FileRoutesById
@@ -98,6 +116,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   PlaygroundRoute: typeof PlaygroundRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WorkRoute: typeof WorkRoute
   WorkProjectIdRoute: typeof WorkProjectIdRoute
 }
@@ -109,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/work'
       fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/playground': {
@@ -154,9 +180,19 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   PlaygroundRoute: PlaygroundRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   WorkRoute: WorkRoute,
   WorkProjectIdRoute: WorkProjectIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
