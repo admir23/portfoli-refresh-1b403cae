@@ -22,6 +22,7 @@ const projects = [
     title: "Fumis Solutions",
     client: "Fumis",
     slug: "fumissolutions",
+    externalUrl: null,
     image: fumisImage,
     accent: "Product design · IoT platform",
     summary:
@@ -32,6 +33,7 @@ const projects = [
     title: "Direct2Care",
     client: "Direct2MD",
     slug: "direct2care",
+    externalUrl: null,
     image: direct2careImage,
     accent: "Healthcare · Patient experience",
     summary:
@@ -39,9 +41,21 @@ const projects = [
     status: "Read case study",
   },
   {
+    title: "Automated Design System",
+    client: "Lawn Guru",
+    slug: null,
+    externalUrl: "https://lawn-guru-design-system.vercel.app/",
+    image: lawnguruImage,
+    accent: "Design system · AI automation",
+    summary:
+      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
+    status: "View design system",
+  },
+  {
     title: "United Fitness",
     client: "United Fitness Brands",
     slug: null,
+    externalUrl: null,
     image: unitedFitnessImage,
     accent: "Wellness · Brand systems",
     summary:
@@ -52,7 +66,8 @@ const projects = [
     title: "Ebgroupp",
     client: "Handwerker Pro",
     slug: null,
-    image: handwerkerproImage,
+    externalUrl: null,
+ image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
     summary:
       "A service marketplace experience that turns fragmented workflows into clearer product moments.",
