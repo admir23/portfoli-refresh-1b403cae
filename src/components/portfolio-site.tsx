@@ -387,39 +387,137 @@ function Shell({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Hero() {
+function CodeRain({ active }: { active: boolean }) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let raf = 0;
+    const dpr = window.devicePixelRatio || 1;
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const chars = "01{}[]<>/\\=+-*$#@!?;:.,ABCDEFKLMNXYZ";
+    const fontSize = 14;
+    const cols = Math.floor(canvas.clientWidth / fontSize);
+    const drops = Array.from({ length: cols }, () => Math.random() * -50);
+    const palette = ["#7c3aed", "#ec4899", "#22d3ee", "#10b981", "#f59e0b"];
+
+    let last = 0;
+    const tick = (t: number) => {
+      const interval = active ? 55 : 160;
+      if (t - last > interval) {
+        last = t;
+        ctx.fillStyle = `rgba(0,0,0,${active ? 0.18 : 0.32})`;
+        ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+        ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+        for (let i = 0; i < drops.length; i++) {
+          const ch = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillStyle = palette[i % palette.length] + (active ? "" : "99");
+          ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.clientHeight && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i] += active ? 1 : 0.4;
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
+  }, [active]);
+
   return (
-    <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
-      <div className="mx-auto w-full max-w-6xl">
-          <div className="relative mx-auto max-w-5xl">
-            <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
-              <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
-                product design
-              </span>
-              {"I blend thoughtful strategy with product design to make experiences that just… make sense"
-                .split(" ")
-                .map((word, i) => (
-                  <span
-                    key={i}
-                    className="hero-word inline-block"
-                    style={{ animationDelay: `${i * 140}ms` }}
-                  >
-                    {word}
-                    {i < 14 ? "\u00A0" : ""}
-                  </span>
-                ))}
-            </h1>
-          <p className="hand-note mt-5 ml-auto max-w-xs text-right">
-            designing products that feel clear before they ask for effort
-          </p>
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className={`pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-500 ${active ? "opacity-100" : "opacity-40"}`}
+    />
+  );
+}
+
+function Hero() {
+  const [hovered, setHovered] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const email = "hello@admirkurtovic.com";
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* noop */
+    }
+  };
+
+  return (
+    <section
+      className="relative flex min-h-screen items-center overflow-hidden bg-background px-5 pb-20 pt-28 sm:px-8"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div
+        aria-hidden="true"
+        className={`pointer-events-none absolute right-0 top-1/2 -z-0 h-[640px] w-[640px] -translate-y-1/2 translate-x-[8%] rounded-full transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-70"}`}
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(124,58,237,0.35), rgba(236,72,153,0.18) 35%, transparent 70%)",
+          filter: "blur(4px)",
+        }}
+      >
+        <div className="absolute inset-10 overflow-hidden rounded-full">
+          <CodeRain active={hovered} />
         </div>
-        <div className="mt-12 flex flex-col gap-3 sm:flex-row lg:justify-end">
-          <Link to="/work" className="btn-primary">
-            My Work
-          </Link>
-          <Link to="/about" className="btn-secondary">
-            How I Think
-          </Link>
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl">
+        <div className="mb-8 inline-flex items-center gap-3">
+          <span className="inline-flex items-center rounded-full border border-foreground px-3 py-1 text-[0.7rem] font-black tracking-wider text-foreground">
+            OPEN
+          </span>
+          <span className="text-sm font-semibold text-foreground/90">
+            For new opportunities
+          </span>
+        </div>
+
+        <h1 className="text-balance text-[3.4rem] font-bold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-[5.8rem]">
+          {"Design partner who ships, concept to code."
+            .split(" ")
+            .map((word, i, arr) => (
+              <span
+                key={i}
+                className="hero-word inline-block"
+                style={{ animationDelay: `${i * 120}ms` }}
+              >
+                {word}
+                {i < arr.length - 1 ? "\u00A0" : ""}
+              </span>
+            ))}
+        </h1>
+
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href={`mailto:${email}`} className="btn-primary">
+            LET'S TALK
+            <span aria-hidden="true">→</span>
+          </a>
+          <button type="button" onClick={handleCopy} className="btn-secondary">
+            {copied ? "COPIED" : "COPY EMAIL"}
+            <span aria-hidden="true">⧉</span>
+          </button>
         </div>
       </div>
     </section>
