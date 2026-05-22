@@ -19,6 +19,17 @@ import {
 
 const projects = [
   {
+    title: "Automated Design System",
+    client: "Lawn Guru",
+    slug: null,
+    externalUrl: "https://lawn-guru-design-system.vercel.app/",
+    image: lawnguruImage,
+    accent: "Design system · AI automation",
+    summary:
+      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
+    status: "View design system",
+  },
+  {
     title: "Fumis Solutions",
     client: "Fumis",
     slug: "fumissolutions",
@@ -39,17 +50,6 @@ const projects = [
     summary:
       "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
     status: "Read case study",
-  },
-  {
-    title: "Automated Design System",
-    client: "Lawn Guru",
-    slug: null,
-    externalUrl: "https://lawn-guru-design-system.vercel.app/",
-    image: lawnguruImage,
-    accent: "Design system · AI automation",
-    summary:
-      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
-    status: "View design system",
   },
   {
     title: "United Fitness",
