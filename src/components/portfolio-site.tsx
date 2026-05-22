@@ -413,19 +413,13 @@ function Hero() {
             designing products that feel clear before they ask for effort
           </p>
         </div>
-        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_26rem] lg:items-end">
-          <p className="max-w-2xl text-lg leading-8 text-muted-foreground">
-            By blending thoughtful strategy, purposeful design, and user centered insights, I help
-            shape products that not only function seamlessly but also connect meaningfully.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-            <Link to="/work" className="btn-primary">
-              My Work
-            </Link>
-            <Link to="/about" className="btn-secondary">
-              How I Think
-            </Link>
-          </div>
+        <div className="mt-12 flex flex-col gap-3 sm:flex-row lg:justify-end">
+          <Link to="/work" className="btn-primary">
+            My Work
+          </Link>
+          <Link to="/about" className="btn-secondary">
+            How I Think
+          </Link>
         </div>
       </div>
     </section>
