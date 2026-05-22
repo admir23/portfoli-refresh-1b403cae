@@ -6,6 +6,7 @@ import admirPortrait from "../assets/admir-portrait.jpg";
 import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
+import lawnguruImage from "../assets/lawnguru-design-system.png";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
@@ -21,6 +22,7 @@ const projects = [
     title: "Fumis Solutions",
     client: "Fumis",
     slug: "fumissolutions",
+    externalUrl: null,
     image: fumisImage,
     accent: "Product design · IoT platform",
     summary:
@@ -31,6 +33,7 @@ const projects = [
     title: "Direct2Care",
     client: "Direct2MD",
     slug: "direct2care",
+    externalUrl: null,
     image: direct2careImage,
     accent: "Healthcare · Patient experience",
     summary:
@@ -38,9 +41,21 @@ const projects = [
     status: "Read case study",
   },
   {
+    title: "Automated Design System",
+    client: "Lawn Guru",
+    slug: null,
+    externalUrl: "https://lawn-guru-design-system.vercel.app/",
+    image: lawnguruImage,
+    accent: "Design system · AI automation",
+    summary:
+      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
+    status: "View design system",
+  },
+  {
     title: "United Fitness",
     client: "United Fitness Brands",
     slug: null,
+    externalUrl: null,
     image: unitedFitnessImage,
     accent: "Wellness · Brand systems",
     summary:
@@ -51,6 +66,7 @@ const projects = [
     title: "Ebgroupp",
     client: "Handwerker Pro",
     slug: null,
+    externalUrl: null,
     image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
     summary:
@@ -498,6 +514,21 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   const gridClass = imageFirst
     ? "group grid gap-6 border-t border-border py-10 md:grid-cols-[1fr_0.62fr] md:items-center md:gap-10"
     : "group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10";
+
+  if (project.externalUrl) {
+    return (
+      <a
+        href={project.externalUrl}
+        target="_blank"
+        rel="noreferrer"
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        style={{ transitionDelay: `${index * 90}ms` }}
+        className={`${gridClass} ${revealClass}`}
+      >
+        {content}
+      </a>
+    );
+  }
 
   if (project.slug) {
     return (
