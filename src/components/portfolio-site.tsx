@@ -486,22 +486,43 @@ function AsciiSphere() {
 
 function Hero() {
   const [copied, setCopied] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const orbRef = useRef<HTMLDivElement | null>(null);
   const targetRef = useRef({ x: 0, y: 0 });
   const currentRef = useRef({ x: 0, y: 0 });
+  const visibleRef = useRef(false);
+  const [visible, setVisible] = useState(false);
   const email = "hello@admirkurtovic.com";
 
   useEffect(() => {
-    // initial position: top-right
+    const section = sectionRef.current;
+    if (!section) return;
+
     const setDefault = () => {
-      targetRef.current = { x: window.innerWidth - 320, y: 220 };
+      const rect = section.getBoundingClientRect();
+      targetRef.current = { x: rect.right - 260, y: rect.top + 240 };
       currentRef.current = { ...targetRef.current };
     };
     setDefault();
     window.addEventListener("resize", setDefault);
 
     const onMove = (e: MouseEvent) => {
-      targetRef.current = { x: e.clientX, y: e.clientY };
+      const rect = section.getBoundingClientRect();
+      const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
+      if (inside) {
+        targetRef.current = { x: e.clientX, y: e.clientY };
+        if (!visibleRef.current) {
+          visibleRef.current = true;
+          setVisible(true);
+        }
+      } else if (visibleRef.current) {
+        visibleRef.current = false;
+        setVisible(false);
+      }
     };
     window.addEventListener("mousemove", onMove);
 
@@ -534,14 +555,16 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex items-center overflow-hidden bg-background px-5 pb-0 pt-12 sm:px-8 sm:pt-16 py-0 my-[124px]">
+    <section ref={sectionRef} className="relative flex items-center overflow-hidden bg-background px-5 pb-0 pt-12 sm:px-8 sm:pt-16 py-0 my-[124px]">
       <div
         ref={orbRef}
         aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-0 will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-0 will-change-transform transition-opacity duration-300"
+        style={{ opacity: visible ? 1 : 0 }}
       >
         <AsciiSphere />
       </div>
+
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="mb-8 inline-flex items-center gap-3">
