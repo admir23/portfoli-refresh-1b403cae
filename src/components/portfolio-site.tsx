@@ -387,7 +387,7 @@ function Shell({ children }: { children: React.ReactNode }) {
   );
 }
 
-function CodeRain({ active }: { active: boolean }) {
+function AsciiSphere() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -396,63 +396,132 @@ function CodeRain({ active }: { active: boolean }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let raf = 0;
+    const size = 420;
     const dpr = window.devicePixelRatio || 1;
-    const resize = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      ctx.scale(dpr, dpr);
-    };
-    resize();
-    window.addEventListener("resize", resize);
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    canvas.style.width = `${size}px`;
+    canvas.style.height = `${size}px`;
+    ctx.scale(dpr, dpr);
 
-    const chars = "01{}[]<>/\\=+-*$#@!?;:.,ABCDEFKLMNXYZ";
-    const fontSize = 14;
-    const cols = Math.floor(canvas.clientWidth / fontSize);
-    const drops = Array.from({ length: cols }, () => Math.random() * -50);
-    const palette = ["#7c3aed", "#ec4899", "#22d3ee", "#10b981", "#f59e0b"];
+    const chars = "01{}[]<>/\\=+-*$#@!?;:.,ABCDEFKLMNXYZ()|~^";
+    const palette = ["#7c3aed", "#ec4899", "#22d3ee", "#10b981", "#f59e0b", "#f472b6"];
+    const fontSize = 12;
+    const step = 14;
+    const cx = size / 2;
+    const cy = size / 2;
+    const radius = size / 2 - 20;
 
-    let last = 0;
+    // Pre-generate sphere points
+    type P = { x: number; y: number; z: number; color: string; ch: string };
+    const points: P[] = [];
+    for (let py = -radius; py <= radius; py += step) {
+      for (let px = -radius; px <= radius; px += step) {
+        const d2 = px * px + py * py;
+        if (d2 > radius * radius) continue;
+        const z = Math.sqrt(radius * radius - d2);
+        points.push({
+          x: px,
+          y: py,
+          z,
+          color: palette[Math.floor(Math.random() * palette.length)],
+          ch: chars[Math.floor(Math.random() * chars.length)],
+        });
+      }
+    }
+
+    let raf = 0;
+    let angle = 0;
+    let lastShuffle = 0;
+
     const tick = (t: number) => {
-      const interval = active ? 55 : 160;
-      if (t - last > interval) {
-        last = t;
-        ctx.fillStyle = `rgba(0,0,0,${active ? 0.18 : 0.32})`;
-        ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-        ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-        for (let i = 0; i < drops.length; i++) {
-          const ch = chars[Math.floor(Math.random() * chars.length)];
-          ctx.fillStyle = palette[i % palette.length] + (active ? "" : "99");
-          ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
-          if (drops[i] * fontSize > canvas.clientHeight && Math.random() > 0.975) {
-            drops[i] = 0;
+      angle += 0.008;
+      if (t - lastShuffle > 90) {
+        lastShuffle = t;
+        for (let i = 0; i < points.length; i++) {
+          if (Math.random() < 0.18) {
+            points[i].ch = chars[Math.floor(Math.random() * chars.length)];
           }
-          drops[i] += active ? 1 : 0.4;
         }
       }
+
+      ctx.clearRect(0, 0, size, size);
+      ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      const cos = Math.cos(angle);
+      const sin = Math.sin(angle);
+
+      for (const p of points) {
+        // rotate around Y
+        const rx = p.x * cos + p.z * sin;
+        const rz = -p.x * sin + p.z * cos;
+        const depth = (rz + radius) / (2 * radius); // 0..1
+        const alpha = 0.15 + depth * 0.85;
+        const edgeFade = 1 - Math.sqrt(p.x * p.x + p.y * p.y) / radius;
+        ctx.globalAlpha = alpha * (0.4 + edgeFade * 0.6);
+        ctx.fillStyle = p.color;
+        ctx.fillText(p.ch, cx + rx, cy + p.y);
+      }
+      ctx.globalAlpha = 1;
+
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
-  }, [active]);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   return (
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-0 h-full w-full transition-opacity duration-500 ${active ? "opacity-100" : "opacity-40"}`}
+      className="pointer-events-none block"
+      style={{
+        filter: "drop-shadow(0 0 40px rgba(124,58,237,0.35)) drop-shadow(0 0 80px rgba(236,72,153,0.18))",
+      }}
     />
   );
 }
 
 function Hero() {
-  const [hovered, setHovered] = useState(false);
   const [copied, setCopied] = useState(false);
+  const orbRef = useRef<HTMLDivElement | null>(null);
+  const targetRef = useRef({ x: 0, y: 0 });
+  const currentRef = useRef({ x: 0, y: 0 });
   const email = "hello@admirkurtovic.com";
+
+  useEffect(() => {
+    // initial position: top-right
+    const setDefault = () => {
+      targetRef.current = { x: window.innerWidth - 320, y: 220 };
+      currentRef.current = { ...targetRef.current };
+    };
+    setDefault();
+    window.addEventListener("resize", setDefault);
+
+    const onMove = (e: MouseEvent) => {
+      targetRef.current = { x: e.clientX, y: e.clientY };
+    };
+    window.addEventListener("mousemove", onMove);
+
+    let raf = 0;
+    const loop = () => {
+      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.08;
+      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.08;
+      if (orbRef.current) {
+        orbRef.current.style.transform = `translate3d(${currentRef.current.x - 210}px, ${currentRef.current.y - 210}px, 0)`;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize", setDefault);
+    };
+  }, []);
 
   const handleCopy = async () => {
     try {
@@ -465,23 +534,13 @@ function Hero() {
   };
 
   return (
-    <section
-      className="relative flex min-h-screen items-center overflow-hidden bg-background px-5 pb-20 pt-28 sm:px-8"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-background px-5 pb-20 pt-28 sm:px-8">
       <div
+        ref={orbRef}
         aria-hidden="true"
-        className={`pointer-events-none absolute right-0 top-1/2 -z-0 h-[640px] w-[640px] -translate-y-1/2 translate-x-[8%] rounded-full transition-opacity duration-500 ${hovered ? "opacity-100" : "opacity-70"}`}
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(124,58,237,0.35), rgba(236,72,153,0.18) 35%, transparent 70%)",
-          filter: "blur(4px)",
-        }}
+        className="pointer-events-none fixed left-0 top-0 z-0 will-change-transform"
       >
-        <div className="absolute inset-10 overflow-hidden rounded-full">
-          <CodeRain active={hovered} />
-        </div>
+        <AsciiSphere />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
@@ -523,6 +582,7 @@ function Hero() {
     </section>
   );
 }
+
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
   const ref = useRef<HTMLElement | null>(null);
