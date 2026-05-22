@@ -476,7 +476,7 @@ function AsciiSphere() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none block [filter:drop-shadow(0_0_40px_rgba(0,0,1,0.12))_drop-shadow(0_0_80px_rgba(0,0,1,1.06))] dark:[filter:drop-shadow(0_0_40px_rgba(255,255,255,0.12))_drop-shadow(0_0_80px_rgba(255,255,255,0.06))]"
+      className="pointer-events-none block [filter:drop-shadow(0_0_40px_rgba(0,0,0,0.12))_drop-shadow(0_0_80px_rgba(0,0,0,0.06))] dark:[filter:drop-shadow(0_0_40px_rgba(255,255,255,0.12))_drop-shadow(0_0_80px_rgba(255,255,255,0.06))]"
     />
   );
 }
