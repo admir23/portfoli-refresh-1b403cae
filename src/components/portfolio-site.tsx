@@ -405,22 +405,7 @@ function Hero() {
                     style={{ animationDelay: `${i * 140}ms` }}
                   >
                     {word}
-                    {i < 13 ? "\u00A0" : ""}
-                    {i === 13 && (
-                      <span className="ml-3 hidden align-middle lg:inline-block">
-                        <span className="portrait-frame portrait-frame--tilt inline-block h-14 w-14 sm:h-16 sm:w-16">
-                          <img
-                            src={admirPortrait}
-                            alt="Portrait of Admir Kurtovic"
-                            className="h-full w-full object-cover"
-                            width={64}
-                            height={64}
-                            loading="eager"
-                            fetchPriority="high"
-                          />
-                        </span>
-                      </span>
-                    )}
+                    {i < 14 ? "\u00A0" : ""}
                   </span>
                 ))}
             </h1>
