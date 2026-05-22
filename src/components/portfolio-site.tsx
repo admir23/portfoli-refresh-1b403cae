@@ -515,6 +515,21 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
     ? "group grid gap-6 border-t border-border py-10 md:grid-cols-[1fr_0.62fr] md:items-center md:gap-10"
     : "group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10";
 
+  if (project.externalUrl) {
+    return (
+      <a
+        href={project.externalUrl}
+        target="_blank"
+        rel="noreferrer"
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        style={{ transitionDelay: `${index * 90}ms` }}
+        className={`${gridClass} ${revealClass}`}
+      >
+        {content}
+      </a>
+    );
+  }
+
   if (project.slug) {
     return (
       <Link
