@@ -763,7 +763,7 @@ export function HomePage() {
   return (
     <Shell>
       <Hero />
-      <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-20 sm:px-8 lg:pb-24">
+      <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-20 lg:pb-24 sm:px-0">
         <div className="mb-4">
           <p className="hand-note mb-2">Okay so… how do I do that?</p>
         </div>
