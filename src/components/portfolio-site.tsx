@@ -19,6 +19,17 @@ import {
 
 const projects = [
   {
+    title: "Automated Design System",
+    client: "Lawn Guru",
+    slug: null,
+    externalUrl: "https://lawn-guru-design-system.vercel.app/",
+    image: lawnguruImage,
+    accent: "Design system · AI automation",
+    summary:
+      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
+    status: "View design system",
+  },
+  {
     title: "Fumis Solutions",
     client: "Fumis",
     slug: "fumissolutions",
@@ -39,17 +50,6 @@ const projects = [
     summary:
       "A healthcare flow designed to make patient actions feel calmer, faster, and easier to trust.",
     status: "Read case study",
-  },
-  {
-    title: "Automated Design System",
-    client: "Lawn Guru",
-    slug: null,
-    externalUrl: "https://lawn-guru-design-system.vercel.app/",
-    image: lawnguruImage,
-    accent: "Design system · AI automation",
-    summary:
-      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
-    status: "View design system",
   },
   {
     title: "United Fitness",
@@ -77,7 +77,7 @@ const projects = [
 
 const caseStudyDetails = {
   fumissolutions: {
-    project: projects[0],
+    project: projects[1],
     headline: "Turning a connected product into a calmer, clearer operating experience.",
     context:
       "Fumis needed the product experience to communicate system status, guide everyday workflows, and make a technical IoT platform feel easier to understand.",
@@ -97,7 +97,7 @@ const caseStudyDetails = {
     ],
   },
   direct2care: {
-    project: projects[1],
+    project: projects[2],
     headline: "Making healthcare interactions feel more direct, understandable, and trustworthy.",
     context:
       "Direct2Care needed a product experience that could reduce friction around healthcare actions while keeping the interface approachable and dependable.",
