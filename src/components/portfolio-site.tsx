@@ -405,7 +405,6 @@ function AsciiSphere() {
     ctx.scale(dpr, dpr);
 
     const chars = "01{}[]<>/\\=+-*$#@!?;:.,ABCDEFKLMNXYZ()|~^";
-    const palette = ["#7c3aed", "#ec4899", "#22d3ee", "#10b981", "#f59e0b", "#f472b6"];
     const fontSize = 12;
     const step = 14;
     const cx = size / 2;
@@ -413,7 +412,7 @@ function AsciiSphere() {
     const radius = size / 2 - 20;
 
     // Pre-generate sphere points
-    type P = { x: number; y: number; z: number; color: string; ch: string };
+    type P = { x: number; y: number; z: number; ch: string };
     const points: P[] = [];
     for (let py = -radius; py <= radius; py += step) {
       for (let px = -radius; px <= radius; px += step) {
@@ -424,7 +423,6 @@ function AsciiSphere() {
           x: px,
           y: py,
           z,
-          color: palette[Math.floor(Math.random() * palette.length)],
           ch: chars[Math.floor(Math.random() * chars.length)],
         });
       }
@@ -453,6 +451,9 @@ function AsciiSphere() {
       const cos = Math.cos(angle);
       const sin = Math.sin(angle);
 
+      const isDark = document.documentElement.classList.contains('dark');
+      ctx.fillStyle = isDark ? '#ffffff' : '#000000';
+
       for (const p of points) {
         // rotate around Y
         const rx = p.x * cos + p.z * sin;
@@ -461,7 +462,6 @@ function AsciiSphere() {
         const alpha = 0.15 + depth * 0.85;
         const edgeFade = 1 - Math.sqrt(p.x * p.x + p.y * p.y) / radius;
         ctx.globalAlpha = alpha * (0.4 + edgeFade * 0.6);
-        ctx.fillStyle = p.color;
         ctx.fillText(p.ch, cx + rx, cy + p.y);
       }
       ctx.globalAlpha = 1;
@@ -476,10 +476,7 @@ function AsciiSphere() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none block"
-      style={{
-        filter: "drop-shadow(0 0 40px rgba(124,58,237,0.35)) drop-shadow(0 0 80px rgba(236,72,153,0.18))",
-      }}
+      className="pointer-events-none block [filter:drop-shadow(0_0_40px_rgba(0,0,1,0.12))_drop-shadow(0_0_80px_rgba(0,0,1,1.06))] dark:[filter:drop-shadow(0_0_40px_rgba(255,255,255,0.12))_drop-shadow(0_0_80px_rgba(255,255,255,0.06))]"
     />
   );
 }
