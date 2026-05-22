@@ -67,7 +67,7 @@ const projects = [
     client: "Handwerker Pro",
     slug: null,
     externalUrl: null,
- image: handwerkerproImage,
+    image: handwerkerproImage,
     accent: "SaaS · Service marketplace",
     summary:
       "A service marketplace experience that turns fragmented workflows into clearer product moments.",
