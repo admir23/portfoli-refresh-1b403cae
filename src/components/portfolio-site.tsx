@@ -77,7 +77,7 @@ const projects = [
 
 const caseStudyDetails = {
   fumissolutions: {
-    project: projects[0],
+    project: projects[1],
     headline: "Turning a connected product into a calmer, clearer operating experience.",
     context:
       "Fumis needed the product experience to communicate system status, guide everyday workflows, and make a technical IoT platform feel easier to understand.",
@@ -97,7 +97,7 @@ const caseStudyDetails = {
     ],
   },
   direct2care: {
-    project: projects[1],
+    project: projects[2],
     headline: "Making healthcare interactions feel more direct, understandable, and trustworthy.",
     context:
       "Direct2Care needed a product experience that could reduce friction around healthcare actions while keeping the interface approachable and dependable.",
