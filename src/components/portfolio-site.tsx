@@ -219,7 +219,7 @@ function ThemeToggle() {
 
 function Header() {
   const linkClass =
-    "text-sm font-semibold text-muted-foreground transition hover:text-foreground data-[status=active]:text-foreground";
+    "text-sm font-medium uppercase tracking-wide text-muted-foreground transition hover:text-foreground data-[status=active]:text-foreground";
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur-md">
@@ -275,7 +275,7 @@ function BottomNavigation() {
   const location = useLocation();
   const moreIsActive = location.pathname === "/contact" || location.pathname === "/playground";
   const linkClass =
-    "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-full px-2 py-2 text-[0.7rem] font-semibold text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground";
+    "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-full px-2 py-2 text-[0.7rem] font-medium uppercase tracking-wide text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground";
   const moreButtonClass = `${linkClass} ${moreIsActive ? "bg-secondary text-foreground" : ""}`;
   const iconClass = "h-4 w-4";
 
