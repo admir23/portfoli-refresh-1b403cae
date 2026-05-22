@@ -391,37 +391,39 @@ function Hero() {
   return (
     <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
-        <div className="relative mx-auto max-w-5xl">
-          <div className="mb-3 ml-1 flex items-center gap-3 sm:mb-4 lg:absolute lg:-left-28 lg:-top-10 lg:mb-1 lg:flex-col lg:items-start lg:gap-2">
-            <div className="portrait-frame portrait-frame--tilt h-14 w-14 shrink-0 sm:h-16 sm:w-16">
-              <img
-                src={admirPortrait}
-                alt="Portrait of Admir Kurtovic"
-                className="h-full w-full object-cover"
-                width={64}
-                height={64}
-                loading="eager"
-                fetchPriority="high"
-              />
-            </div>
-          </div>
-          <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
-            <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
-              product design
-            </span>
-            {"I blend thoughtful strategy with product design to make experiences that just… make sense"
-              .split(" ")
-              .map((word, i) => (
-                <span
-                  key={i}
-                  className="hero-word inline-block"
-                  style={{ animationDelay: `${i * 140}ms` }}
-                >
-                  {word}
-                  {i < 14 ? "\u00A0" : ""}
-                </span>
-              ))}
-          </h1>
+          <div className="relative mx-auto max-w-5xl">
+            <h1 className="relative text-balance text-[3.4rem] font-bold leading-[0.95] tracking-normal text-foreground sm:text-7xl lg:text-[5.8rem]">
+              <span className="absolute left-0 top-[28%] -z-10 hidden text-[0.92em] text-muted/80 sm:block">
+                product design
+              </span>
+              {"I blend thoughtful strategy with product design to make experiences that just… make sense"
+                .split(" ")
+                .map((word, i) => (
+                  <span
+                    key={i}
+                    className="hero-word inline-block"
+                    style={{ animationDelay: `${i * 140}ms` }}
+                  >
+                    {word}
+                    {i < 13 ? "\u00A0" : ""}
+                    {i === 13 && (
+                      <span className="ml-3 hidden align-middle lg:inline-block">
+                        <span className="portrait-frame portrait-frame--tilt inline-block h-14 w-14 sm:h-16 sm:w-16">
+                          <img
+                            src={admirPortrait}
+                            alt="Portrait of Admir Kurtovic"
+                            className="h-full w-full object-cover"
+                            width={64}
+                            height={64}
+                            loading="eager"
+                            fetchPriority="high"
+                          />
+                        </span>
+                      </span>
+                    )}
+                  </span>
+                ))}
+            </h1>
           <p className="hand-note mt-5 ml-auto max-w-xs text-right">
             designing products that feel clear before they ask for effort
           </p>
