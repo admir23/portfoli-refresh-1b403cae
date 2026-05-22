@@ -6,6 +6,7 @@ import admirPortrait from "../assets/admir-portrait.jpg";
 import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
+import lawnguruImage from "../assets/lawnguru-design-system.png";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
