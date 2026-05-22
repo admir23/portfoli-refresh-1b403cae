@@ -746,9 +746,6 @@ export function HomePage() {
       <section className="mx-auto w-full max-w-6xl px-5 py-16 sm:px-8 lg:py-24">
         <div className="mb-4">
           <p className="hand-note mb-2">Okay so… how do I do that?</p>
-          <h2 className="text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
-            Here’s how
-          </h2>
         </div>
         <WorkList />
       </section>
