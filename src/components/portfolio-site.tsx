@@ -534,7 +534,7 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex items-center overflow-hidden bg-background px-5 pb-0 pt-12 sm:px-8 sm:pt-16">
+    <section className="relative flex items-center overflow-hidden bg-background px-5 pb-0 pt-12 sm:px-8 sm:pt-16 py-0 my-[124px]">
       <div
         ref={orbRef}
         aria-hidden="true"
