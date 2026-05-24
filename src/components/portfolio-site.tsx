@@ -565,7 +565,7 @@ function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="mb-8 inline-flex items-center gap-3">
-          <span className="inline-flex items-center rounded-full border border-foreground px-3 py-1 text-[0.7rem] font-black tracking-wider text-foreground">
+          <span className="inline-flex items-center rounded-full border border-foreground px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground">
             OPEN
           </span>
           <span className="text-sm font-semibold text-foreground/90">
@@ -573,7 +573,7 @@ function Hero() {
           </span>
         </div>
 
-        <h1 className="text-balance text-[3.4rem] font-bold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-[5.8rem]">
+        <h1 className="text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
           {"Design partner who ships, concept to code."
             .split(" ")
             .map((word, i, arr) => (
@@ -633,16 +633,16 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   const textBlock = (
     <div className={imageFirst ? "md:order-2" : "md:order-1"}>
       <div className="flex flex-wrap items-center gap-3">
-        <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-        <span className="rounded-full border border-border px-3 py-1 text-xs font-bold text-muted-foreground">
+        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">0{index + 1}</p>
+        <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           {project.status}
         </span>
       </div>
-      <h2 className="mt-4 max-w-xl text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
+      <h2 className="mt-4 max-w-xl text-balance text-4xl font-semibold leading-none text-foreground md:text-6xl">
         {project.title}
       </h2>
-      <p className="mt-3 text-sm font-bold text-foreground">{project.accent}</p>
-      <p className="mt-5 max-w-xl text-lg leading-8 text-muted-foreground">{project.summary}</p>
+      <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-foreground">{project.accent}</p>
+      <p className="mt-5 max-w-xl text-base leading-snug text-muted-foreground">{project.summary}</p>
     </div>
   );
 
@@ -726,7 +726,7 @@ function CtaSection() {
   return (
     <section className="bg-foreground text-background">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-5 py-16 sm:px-8 md:flex-row md:items-end md:justify-between lg:py-24">
-        <h2 className="max-w-3xl text-balance text-5xl font-bold leading-none tracking-normal sm:text-7xl">
+        <h2 className="max-w-3xl text-balance text-4xl font-semibold leading-none sm:text-6xl md:text-7xl">
           Let's create something that makes sense.
         </h2>
         <a href="mailto:hello@admirkurtovic.com" className="btn-invert md:shrink-0">
@@ -742,7 +742,7 @@ function Footer() {
 
   return (
     <footer className="bg-background">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-8 text-sm font-semibold text-muted-foreground sm:px-8 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-8 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:px-8 md:flex-row md:items-center md:justify-between">
         <p>© {currentYear} Admir Kurtovic</p>
         <div className="flex flex-wrap gap-5">
           <Link to="/">Home</Link>
@@ -779,10 +779,10 @@ export function WorkPage() {
     <Shell>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
         <p className="section-kicker mb-3">selected work</p>
-        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
           Products shaped through strategy, clarity, and craft.
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+        <p className="mt-8 max-w-2xl text-base leading-snug text-muted-foreground">
           A selection of product, brand, and experience design work for teams building useful,
           valuable digital products.
         </p>
@@ -809,10 +809,10 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           <p className="hand-note mb-3 max-w-[12rem] rotate-[-3deg] sm:absolute sm:right-8 sm:top-36 sm:max-w-[14rem] sm:rotate-[4deg] lg:right-16">
             {caseStudy.project.client} · {caseStudy.project.accent}
           </p>
-          <h1 className="max-w-5xl text-balance text-[2.75rem] font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
             {caseStudy.headline}
           </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground sm:mt-8 sm:text-xl sm:leading-9">
+          <p className="mt-7 max-w-3xl text-base leading-snug text-muted-foreground sm:mt-8">
             {caseStudy.context}
           </p>
         </section>
@@ -831,10 +831,10 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
                 key={section.title}
                 className="border-b border-border py-7 sm:py-8 lg:border-r lg:px-8 lg:last:border-r-0"
               >
-                <h2 className="text-2xl font-bold leading-tight tracking-normal text-foreground sm:text-3xl">
+                <h2 className="text-base leading-snug font-medium text-foreground">
                   {section.title}
                 </h2>
-                <p className="mt-4 text-base leading-8 text-muted-foreground sm:mt-5 sm:text-lg">
+                <p className="mt-4 text-base leading-snug text-muted-foreground sm:mt-5">
                   {section.body}
                 </p>
               </section>
@@ -849,8 +849,8 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
                 key={project.title}
                 className="border-b border-border py-8 md:px-8 md:odd:border-r"
               >
-                <p className="text-sm font-bold text-muted-foreground">{project.status}</p>
-                <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal text-foreground">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{project.status}</p>
+                <h2 className="mt-3 text-base leading-snug font-medium text-foreground">
                   {project.title}
                 </h2>
                 <p className="mt-4 text-muted-foreground">{project.summary}</p>
@@ -870,11 +870,11 @@ export function AboutPage() {
       <section className="mx-auto grid w-full max-w-6xl gap-12 px-5 pb-16 pt-32 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:pb-24 lg:pt-40">
         <div>
           <p className="section-kicker mb-3">about me</p>
-          <h1 className="text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl">
+          <h1 className="text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
             I design products with direction, clarity, and depth.
           </h1>
         </div>
-        <div className="space-y-7 pt-2 text-xl leading-9 text-muted-foreground">
+        <div className="space-y-7 pt-2 text-base leading-snug text-muted-foreground">
           <div className="flex items-center gap-5">
             <div className="portrait-frame portrait-frame--tilt h-24 w-24 shrink-0 sm:h-28 sm:w-28">
               <img
@@ -919,19 +919,19 @@ export function AboutPage() {
         <div className="grid border-t border-border lg:grid-cols-3">
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Focus</p>
-            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+            <h2 className="mt-5 text-base leading-snug font-medium text-foreground">
               Marketplace flows, healthcare tools, AI products, and design systems.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:border-r lg:px-8">
             <p className="section-kicker">Approach</p>
-            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+            <h2 className="mt-5 text-base leading-snug font-medium text-foreground">
               Research, testing, Figma systems, and close design to development collaboration.
             </h2>
           </div>
           <div className="border-b border-border py-8 lg:px-8">
             <p className="section-kicker">Tools</p>
-            <h2 className="mt-5 text-3xl font-bold leading-tight tracking-normal text-foreground">
+            <h2 className="mt-5 text-base leading-snug font-medium text-foreground">
               Figma, Framer, Storybook, Miro, Lottie, HTML/CSS, and AI assisted workflows.
             </h2>
           </div>
@@ -947,24 +947,24 @@ export function AboutPage() {
           </div>
           <div className="space-y-8">
             <div>
-              <p className="text-sm font-bold text-muted-foreground">2025 to Present · LawnGuru</p>
-              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">2025 to Present · LawnGuru</p>
+              <h2 className="mt-2 text-base leading-snug font-medium text-foreground">
                 Leading full product design across marketplace flows.
               </h2>
-              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+              <p className="mt-3 text-base leading-snug text-muted-foreground">
                 Owning Order History, Order Detail, My Services, and quote review flows while
                 building scalable Figma components and translating key UI patterns into production
                 React and HTML.
               </p>
             </div>
             <div>
-              <p className="text-sm font-bold text-muted-foreground">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 2024 to 2025 · Social Explorer
               </p>
-              <h2 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-foreground">
+              <h2 className="mt-2 text-base leading-snug font-medium text-foreground">
                 Designed accessibility and AI analytics platforms.
               </h2>
-              <p className="mt-3 text-lg leading-8 text-muted-foreground">
+              <p className="mt-3 text-base leading-snug text-muted-foreground">
                 Worked on AARP’s accessibility platform for older adults and Signal Aviation, an
                 AI-powered platform that helps airlines identify high-potential markets.
               </p>
@@ -976,8 +976,8 @@ export function AboutPage() {
         <div className="grid border-t border-border md:grid-cols-2">
           {principles.map((principle, index) => (
             <div key={principle} className="border-b border-border py-8 md:px-8 md:odd:border-r">
-              <p className="text-sm font-black text-muted-foreground">0{index + 1}</p>
-              <h2 className="mt-8 text-4xl font-bold leading-tight tracking-normal text-foreground">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">0{index + 1}</p>
+              <h2 className="mt-8 text-2xl font-semibold leading-snug text-foreground">
                 {principle}
               </h2>
             </div>
@@ -994,10 +994,10 @@ export function ContactPage() {
     <Shell>
       <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col justify-center px-5 py-32 sm:px-8">
         <p className="section-kicker mb-3">contact</p>
-        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
           Have a product idea that needs more clarity and craft?
         </h1>
-        <p className="mt-8 max-w-2xl text-xl leading-9 text-muted-foreground">
+        <p className="mt-8 max-w-2xl text-base leading-snug text-muted-foreground">
           Let’s chat about shaping it into an experience that connects meaningfully and delivers
           real value.
         </p>
@@ -1032,25 +1032,25 @@ export function PlaygroundPage() {
     <Shell>
       <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-32 sm:px-8 lg:pb-24 lg:pt-40">
         <p className="section-kicker mb-3">playground</p>
-        <h1 className="max-w-5xl text-balance text-5xl font-bold leading-none tracking-normal text-foreground sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="max-w-5xl text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
           Side projects, useful ideas, and experiments that started with a real problem.
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+        <p className="mt-8 max-w-2xl text-base leading-snug text-muted-foreground">
           A place for smaller builds and product explorations. Some polished, some scrappy, all
           shaped around learning by making.
         </p>
         <article className="mt-14 border-t border-border py-10">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
-              <p className="text-sm font-black text-muted-foreground">01</p>
-              <h2 className="mt-5 text-balance text-4xl font-bold leading-tight tracking-normal text-foreground sm:text-5xl">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">01</p>
+              <h2 className="mt-5 text-balance text-4xl font-semibold leading-none text-foreground md:text-6xl">
                 CFS Open, an internal CrossFit competition tracker
               </h2>
-              <p className="mt-4 text-sm font-bold text-foreground">
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-foreground">
                 Side project · Product design · AI assisted build
               </p>
             </div>
-            <div className="space-y-6 text-lg leading-8 text-muted-foreground">
+            <div className="space-y-6 text-base leading-snug text-muted-foreground">
               <p>
                 This started with a friend at Community Fitness Sarajevo, where the box runs an
                 internal Open style competition every year. The energy was there, the workouts were
@@ -1068,7 +1068,7 @@ export function PlaygroundPage() {
                 move quickly through the build and Figma for visual edits, layout decisions, and UI
                 polish.
               </p>
-              <div className="grid gap-3 pt-2 text-base font-bold text-foreground sm:grid-cols-3">
+              <div className="grid gap-3 pt-2 text-sm font-medium text-foreground sm:grid-cols-3">
                 <div className="border-t border-border pt-4">Workout setup</div>
                 <div className="border-t border-border pt-4">Score tracking</div>
                 <div className="border-t border-border pt-4">Shared leaderboard</div>
