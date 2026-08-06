@@ -194,33 +194,33 @@ const caseStudyGalleries: Partial<Record<keyof typeof caseStudyDetails, GalleryI
     {
       src: shopChatStep1Image,
       alt: "Chat screen: starting the booking and picking areas of the property",
-      caption: "Step 1 — the conversation opens on the service and the areas that need work.",
+      caption: "Step 1: the conversation opens on the service and the areas that need work.",
     },
     {
       src: shopChatStep2Image,
       alt: "Chat screen offering relevant add-on services",
-      caption: "Step 2 — add-ons are suggested in context rather than bundled into the form up front.",
+      caption: "Step 2: add-ons are suggested in context rather than bundled into the form up front.",
     },
     {
       src: shopChatStep3Image,
       alt: "Chat screen asking a clarifying follow-up question",
-      caption: "Step 3 — a clarifying follow-up, asked only when the previous answer needs it.",
+      caption: "Step 3: a clarifying follow-up, asked only when the previous answer needs it.",
     },
     {
       src: shopChatStep4Image,
       alt: "Chat screen prompting for photos of the job",
       caption:
-        "Step 4 — photos. Skippable by design, since blocking here was the biggest source of drop-off.",
+        "Step 4: photos. Skippable by design, since blocking here was the biggest source of drop-off.",
     },
     {
       src: shopChatStep5Image,
       alt: "Chat screen asking when the job needs doing",
-      caption: "Step 5 — timing, one of the questions asked once regardless of services stacked.",
+      caption: "Step 5: timing, one of the questions asked once regardless of services stacked.",
     },
     {
       src: shopChatStep6Image,
       alt: "Chat screen showing the completed work order summary",
-      caption: "Step 6 — the work order summary the customer confirms before the job is sent out.",
+      caption: "Step 6: the work order summary the customer confirms before the job is sent out.",
     },
     {
       src: shopQuestionSetsImage,
@@ -571,7 +571,7 @@ function Hero() {
                 <span className="text-sm font-bold">For new opportunities</span>
               </p>
               <h1 className="text-3xl font-bold leading-none tracking-tight text-foreground sm:text-5xl">
-                Admir Kurtovic — Product Design Partner
+                Admir Kurtovic
               </h1>
               <h2 className="mt-2 text-balance text-xl font-bold leading-tight text-foreground sm:mt-3 sm:text-2xl">
                 Design partner who ships, concept to code.
@@ -742,7 +742,7 @@ export function HomePage() {
   return (
     <Shell>
       <Hero />
-      {/* Padding on the section, max-width on the inner wrapper — mirrors Hero and
+      {/* Padding on the section, max-width on the inner wrapper, mirroring Hero and
           CtaSection so the work cards line up with the dialog windows above and below. */}
       <section className="px-3 pb-8 pt-2 sm:px-8">
         <div className="mx-auto w-full max-w-3xl">
