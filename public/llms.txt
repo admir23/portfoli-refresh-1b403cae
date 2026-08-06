@@ -12,5 +12,7 @@
 
 ## Case studies
 
+- [Conversational Booking](/work/conversational-booking): Chat-led service booking replacing a bundled Typeform, built on reusable chat primitives.
+- [Automated Design System](/work/automated-design-system): Figma tokens automated into multi-platform libraries, React components, and living docs.
 - [Fumis Solutions](/work/fumissolutions): Connected IoT product experience focused on clarity and daily use.
 - [Direct2Care](/work/direct2care): Healthcare patient flow designed to feel calmer and easier to trust.

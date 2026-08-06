@@ -55,5 +55,15 @@ export const Route = createFileRoute("/work_/$projectId")({
 function ProjectCaseStudyRoute() {
   const { projectId } = Route.useParams();
 
-  return <CaseStudyPage projectId={projectId as "fumissolutions" | "direct2care"} />;
+  return (
+    <CaseStudyPage
+      projectId={
+        projectId as
+          | "automated-design-system"
+          | "conversational-booking"
+          | "fumissolutions"
+          | "direct2care"
+      }
+    />
+  );
 }

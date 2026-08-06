@@ -27,13 +27,22 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    title: "Conversational Booking",
+    client: "Lawn Guru",
+    focus: "Service booking · Conversational UI",
+    summary:
+      "Replacing a bundled Typeform with a chat-led booking flow: one question set per service, reusable chat primitives, and photo capture that never blocks the order.",
+    url: "https://admirkurtovic.com/work/conversational-booking",
+    status: "Case study",
+  },
+  {
     title: "Automated Design System",
     client: "Lawn Guru",
     focus: "Design system · AI automation",
     summary:
       "A fully automated design system built with Claude: Figma tokens turned into multi-platform JSON token libraries, production-ready React component variants, strict TypeScript props, and living documentation deployed to Vercel.",
-    url: "https://lawn-guru-design-system.vercel.app/",
-    status: "Live",
+    url: "https://admirkurtovic.com/work/automated-design-system",
+    status: "Case study",
   },
   {
     title: "Fumis Solutions",

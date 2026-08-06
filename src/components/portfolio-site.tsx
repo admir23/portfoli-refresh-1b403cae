@@ -7,6 +7,15 @@ import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import lawnguruImage from "../assets/lawnguru-design-system.png";
+import shopChatStep1Image from "../assets/shop-chat-step-1.png";
+import shopChatStep2Image from "../assets/shop-chat-step-2.png";
+import shopChatStep3Image from "../assets/shop-chat-step-3.png";
+import shopChatStep4Image from "../assets/shop-chat-step-4.png";
+import shopChatStep5Image from "../assets/shop-chat-step-5.png";
+import shopChatStep6Image from "../assets/shop-chat-step-6.png";
+import shopComponentAuditImage from "../assets/shop-component-audit.png";
+import shopCoverImage from "../assets/shop-cover.jpg";
+import shopQuestionSetsImage from "../assets/shop-question-sets.png";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
@@ -19,15 +28,26 @@ import {
 
 const projects = [
   {
+    title: "Conversational Booking",
+    client: "Lawn Guru",
+    slug: "conversational-booking",
+    externalUrl: null,
+    image: shopCoverImage,
+    accent: "Service booking · Conversational UI",
+    summary:
+      "Replacing a bundled Typeform with a chat-led booking flow: one question set per service, reusable chat primitives, and photo capture that never blocks the order.",
+    status: "Read case study",
+  },
+  {
     title: "Automated Design System",
     client: "Lawn Guru",
-    slug: null,
+    slug: "automated-design-system",
     externalUrl: "https://lawn-guru-design-system.vercel.app/",
     image: lawnguruImage,
     accent: "Design system · AI automation",
     summary:
       "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
-    status: "View design system",
+    status: "Read case study",
   },
   {
     title: "Fumis Solutions",
@@ -76,8 +96,48 @@ const projects = [
 ];
 
 const caseStudyDetails = {
-  fumissolutions: {
+  "automated-design-system": {
     project: projects[1],
+    headline: "A design system that maintains itself, from Figma token to shipped component.",
+    context:
+      "Lawn Guru needed a design system that could keep pace with product work instead of drifting behind it, so the path from Figma tokens to production components had to run without manual upkeep.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "Design systems tend to decay at the handoff. Tokens move in Figma, components lag in code, and documentation slowly becomes a record of what used to be true. The real problem was never the initial design, it was the cost of keeping three sources in agreement.",
+      },
+      {
+        title: "Approach",
+        body: "I built the system as a pipeline rather than a library. Figma variables act as the single source of truth, generating multi-platform token sets, React components, and documentation from the same definitions, with Claude automating the translation work in between.",
+      },
+      {
+        title: "Outcome",
+        body: "Token changes now reach production components and living documentation without anyone hand-editing a file. The system stays accurate by default, which is what makes it likely to actually get used.",
+      },
+    ],
+  },
+  "conversational-booking": {
+    project: projects[0],
+    headline: "Turning a drop-off-prone Typeform into a conversation that books the job.",
+    context:
+      "Lawn Guru's Yard Clean Up form bundled cleanup, mulch install, and weeding into a single Typeform. The work was to break that apart into a chat flow that asks only what the chosen service needs, and to establish which components the chat actually required.",
+    sections: [
+      {
+        title: "Challenge",
+        body: "One form served several services at once, so every customer waded through questions that did not apply to their order. Photos sat at the end of the flow and were the single biggest source of drop-off, which meant the highest-value input was also the one most likely to be abandoned.",
+      },
+      {
+        title: "Approach",
+        body: "I containerised the questions into one set per service, so the chat loads only the set for what the customer added, one service at a time. Shared questions like timing, photos, and notes for the pro are asked once regardless of how many services are stacked. Photos became skippable by design, with post-booking automation prompting for them rather than blocking the order.",
+      },
+      {
+        title: "Outcome",
+        body: "A component audit across all seven services showed roughly 80% of every flow reduces to six reusable chat primitives. Only two custom components were needed: a mulch colour and type swatch selector, and a shared photo attach control with upload progress. Most orders are a single service on standard components, and stacked orders simply repeat the same primitives one service at a time.",
+      },
+    ],
+  },
+  fumissolutions: {
+    project: projects[2],
     headline: "Turning a connected product into a calmer, clearer operating experience.",
     context:
       "Fumis needed the product experience to communicate system status, guide everyday workflows, and make a technical IoT platform feel easier to understand.",
@@ -97,7 +157,7 @@ const caseStudyDetails = {
     ],
   },
   direct2care: {
-    project: projects[2],
+    project: projects[3],
     headline: "Making healthcare interactions feel more direct, understandable, and trustworthy.",
     context:
       "Direct2Care needed a product experience that could reduce friction around healthcare actions while keeping the interface approachable and dependable.",
@@ -117,6 +177,58 @@ const caseStudyDetails = {
     ],
   },
 } as const;
+
+// Optional process imagery per case study, kept separate from caseStudyDetails so
+// entries without a gallery don't need an empty key.
+type GalleryItem = { src: string; alt: string; caption: string };
+
+const caseStudyGalleries: Partial<Record<keyof typeof caseStudyDetails, GalleryItem[]>> = {
+  "conversational-booking": [
+    {
+      src: shopChatStep1Image,
+      alt: "Chat screen: starting the booking and picking areas of the property",
+      caption: "Step 1 — the conversation opens on the service and the areas that need work.",
+    },
+    {
+      src: shopChatStep2Image,
+      alt: "Chat screen offering relevant add-on services",
+      caption: "Step 2 — add-ons are suggested in context rather than bundled into the form up front.",
+    },
+    {
+      src: shopChatStep3Image,
+      alt: "Chat screen asking a clarifying follow-up question",
+      caption: "Step 3 — a clarifying follow-up, asked only when the previous answer needs it.",
+    },
+    {
+      src: shopChatStep4Image,
+      alt: "Chat screen prompting for photos of the job",
+      caption:
+        "Step 4 — photos. Skippable by design, since blocking here was the biggest source of drop-off.",
+    },
+    {
+      src: shopChatStep5Image,
+      alt: "Chat screen asking when the job needs doing",
+      caption: "Step 5 — timing, one of the questions asked once regardless of services stacked.",
+    },
+    {
+      src: shopChatStep6Image,
+      alt: "Chat screen showing the completed work order summary",
+      caption: "Step 6 — the work order summary the customer confirms before the job is sent out.",
+    },
+    {
+      src: shopQuestionSetsImage,
+      alt: "Containerized question sets for Yard Clean Up, mulch install, and weeding",
+      caption:
+        "One question set per service, so the chat loads only what the customer actually ordered. Timing, photos, and notes for the pro are asked once regardless.",
+    },
+    {
+      src: shopComponentAuditImage,
+      alt: "Audit table mapping each service to the chat components it requires",
+      caption:
+        "Every service mapped to the components its questions need, separating the reusable primitives from the two custom builds worth the effort.",
+    },
+  ],
+};
 
 export function getCaseStudyMeta(projectId: string) {
   const caseStudy = caseStudyDetails[projectId as keyof typeof caseStudyDetails];
@@ -185,7 +297,7 @@ function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition hover:bg-secondary"
+      className="mac-button h-6 w-8 px-0"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
@@ -218,16 +330,22 @@ function ThemeToggle() {
 }
 
 function Header() {
-  const linkClass =
-    "text-sm font-medium uppercase tracking-wide text-muted-foreground transition hover:text-foreground data-[status=active]:text-foreground";
+  const linkClass = "mac-menu-item";
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-        <Link to="/" className="block" aria-label="Admir Kurtovic home">
-          <img src={admirLogo} alt="Admir Kurtovic logo" className="h-9 w-9 dark:invert" />
-        </Link>
-        <div className="flex items-center gap-4 sm:gap-8">
+    <header className="mac-menubar fixed inset-x-0 top-0 z-40">
+      <nav className="mx-auto flex h-6 w-full max-w-6xl items-center justify-between px-2">
+        <div className="flex items-center">
+          <Link
+            to="/"
+            className="mac-menu-item px-2"
+            aria-label="Admir Kurtovic home"
+          >
+            <img src={admirLogo} alt="Admir Kurtovic logo" className="h-4 w-4 dark:invert" />
+          </Link>
+          <span className="mac-menu-item hidden font-bold sm:inline-flex" aria-hidden="true">
+            Admir Kurtovic
+          </span>
           <Link
             to="/work"
             className={`${linkClass} hidden sm:inline-flex`}
@@ -264,6 +382,15 @@ function Header() {
           >
             Resume
           </a>
+        </div>
+        <div className="flex items-center gap-1 pr-1">
+          <span className="hidden font-mono text-xs font-bold sm:inline">
+            {new Intl.DateTimeFormat("en-US", { weekday: "short" }).format(new Date())}{" "}
+            {new Intl.DateTimeFormat("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+            }).format(new Date())}
+          </span>
           <ThemeToggle />
         </div>
       </nav>
@@ -275,13 +402,13 @@ function BottomNavigation() {
   const location = useLocation();
   const moreIsActive = location.pathname === "/contact" || location.pathname === "/playground";
   const linkClass =
-    "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-full px-2 py-2 text-[0.7rem] font-medium uppercase tracking-wide text-muted-foreground transition hover:text-foreground data-[status=active]:bg-secondary data-[status=active]:text-foreground";
-  const moreButtonClass = `${linkClass} ${moreIsActive ? "bg-secondary text-foreground" : ""}`;
+    "mac-button flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 py-1.5 text-[0.65rem] font-bold";
+  const moreButtonClass = `${linkClass} ${moreIsActive ? "bg-secondary" : ""}`;
   const iconClass = "h-4 w-4";
 
   return (
     <nav
-      className="fixed inset-x-3 bottom-3 z-50 rounded-full border border-accent bg-background/90 p-1 shadow-lg ring-1 ring-accent/40 backdrop-blur-md dark:border-primary/40 dark:ring-primary/20 sm:hidden"
+      className="mac-window fixed inset-x-2 bottom-2 z-50 p-1 sm:hidden"
       aria-label="Primary navigation"
     >
       <div className="flex items-center gap-1">
@@ -345,25 +472,25 @@ function BottomNavigation() {
           </DrawerTrigger>
           <DrawerContent className="sm:hidden">
             <DrawerHeader>
-              <DrawerTitle>More</DrawerTitle>
+              <DrawerTitle>More…</DrawerTitle>
             </DrawerHeader>
             <div className="grid gap-2 px-4 pb-6">
               <DrawerClose asChild>
                 <Link
                   to="/contact"
-                  className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground"
+                  className="mac-button flex items-center justify-between px-4 py-4 text-base font-bold"
                 >
                   Contact
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">▸</span>
                 </Link>
               </DrawerClose>
               <DrawerClose asChild>
                 <Link
                   to="/playground"
-                  className="flex items-center justify-between rounded-2xl bg-secondary px-4 py-4 text-base font-bold text-foreground"
+                  className="mac-button flex items-center justify-between px-4 py-4 text-base font-bold"
                 >
                   Playground
-                  <span aria-hidden="true">→</span>
+                  <span aria-hidden="true">▸</span>
                 </Link>
               </DrawerClose>
             </div>
@@ -376,170 +503,39 @@ function BottomNavigation() {
 
 function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background pb-24 text-foreground sm:pb-0">
+    <div className="min-h-screen overflow-x-hidden bg-background pb-24 pt-6 text-foreground sm:pb-0">
       <Header />
       <main>{children}</main>
-      <div className="hidden sm:block">
-        <Footer />
-      </div>
       <BottomNavigation />
     </div>
   );
 }
 
-function AsciiSphere() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const size = 420;
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = size * dpr;
-    canvas.height = size * dpr;
-    canvas.style.width = `${size}px`;
-    canvas.style.height = `${size}px`;
-    ctx.scale(dpr, dpr);
-
-    const chars = "01{}[]<>/\\=+-*$#@!?;:.,ABCDEFKLMNXYZ()|~^";
-    const fontSize = 12;
-    const step = 14;
-    const cx = size / 2;
-    const cy = size / 2;
-    const radius = size / 2 - 20;
-
-    // Pre-generate sphere points
-    type P = { x: number; y: number; z: number; ch: string };
-    const points: P[] = [];
-    for (let py = -radius; py <= radius; py += step) {
-      for (let px = -radius; px <= radius; px += step) {
-        const d2 = px * px + py * py;
-        if (d2 > radius * radius) continue;
-        const z = Math.sqrt(radius * radius - d2);
-        points.push({
-          x: px,
-          y: py,
-          z,
-          ch: chars[Math.floor(Math.random() * chars.length)],
-        });
-      }
-    }
-
-    let raf = 0;
-    let angle = 0;
-    let lastShuffle = 0;
-
-    const tick = (t: number) => {
-      angle += 0.008;
-      if (t - lastShuffle > 90) {
-        lastShuffle = t;
-        for (let i = 0; i < points.length; i++) {
-          if (Math.random() < 0.18) {
-            points[i].ch = chars[Math.floor(Math.random() * chars.length)];
-          }
-        }
-      }
-
-      ctx.clearRect(0, 0, size, size);
-      ctx.font = `${fontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-
-      const cos = Math.cos(angle);
-      const sin = Math.sin(angle);
-
-      const isDark = document.documentElement.classList.contains('dark');
-      ctx.fillStyle = isDark ? '#ffffff' : '#000000';
-
-      for (const p of points) {
-        // rotate around Y
-        const rx = p.x * cos + p.z * sin;
-        const rz = -p.x * sin + p.z * cos;
-        const depth = (rz + radius) / (2 * radius); // 0..1
-        const alpha = 0.15 + depth * 0.85;
-        const edgeFade = 1 - Math.sqrt(p.x * p.x + p.y * p.y) / radius;
-        ctx.globalAlpha = alpha * (0.4 + edgeFade * 0.6);
-        ctx.fillText(p.ch, cx + rx, cy + p.y);
-      }
-      ctx.globalAlpha = 1;
-
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
+/* The classic 32x32 caution icon rendered as a period-accurate pixel triangle. */
+function CautionIcon() {
   return (
-    <canvas
-      ref={canvasRef}
+    <svg
       aria-hidden="true"
-      className="pointer-events-none block [filter:drop-shadow(0_0_40px_rgba(0,0,0,0.12))_drop-shadow(0_0_80px_rgba(0,0,0,0.06))] dark:[filter:drop-shadow(0_0_40px_rgba(255,255,255,0.12))_drop-shadow(0_0_80px_rgba(255,255,255,0.06))]"
-    />
+      viewBox="0 0 32 32"
+      className="h-12 w-12 shrink-0"
+      shapeRendering="crispEdges"
+    >
+      <path
+        d="M16 1 L31 30 L1 30 Z"
+        fill="oklch(0.883 0 0)"
+        stroke="oklch(0 0 0)"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <rect x="14.5" y="10" width="3" height="10" fill="oklch(0 0 0)" />
+      <rect x="14.5" y="23" width="3" height="3" fill="oklch(0 0 0)" />
+    </svg>
   );
 }
 
 function Hero() {
   const [copied, setCopied] = useState(false);
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const orbRef = useRef<HTMLDivElement | null>(null);
-  const targetRef = useRef({ x: 0, y: 0 });
-  const currentRef = useRef({ x: 0, y: 0 });
-  const visibleRef = useRef(false);
-  const [visible, setVisible] = useState(false);
   const email = "hello@admirkurtovic.com";
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const setDefault = () => {
-      const rect = section.getBoundingClientRect();
-      targetRef.current = { x: rect.right - 260, y: rect.top + 240 };
-      currentRef.current = { ...targetRef.current };
-    };
-    setDefault();
-    window.addEventListener("resize", setDefault);
-
-    const onMove = (e: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const inside =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom;
-      if (inside) {
-        targetRef.current = { x: e.clientX, y: e.clientY };
-        if (!visibleRef.current) {
-          visibleRef.current = true;
-          setVisible(true);
-        }
-      } else if (visibleRef.current) {
-        visibleRef.current = false;
-        setVisible(false);
-      }
-    };
-    window.addEventListener("mousemove", onMove);
-
-    let raf = 0;
-    const loop = () => {
-      currentRef.current.x += (targetRef.current.x - currentRef.current.x) * 0.08;
-      currentRef.current.y += (targetRef.current.y - currentRef.current.y) * 0.08;
-      if (orbRef.current) {
-        orbRef.current.style.transform = `translate3d(${currentRef.current.x - 210}px, ${currentRef.current.y - 210}px, 0)`;
-      }
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("resize", setDefault);
-    };
-  }, []);
 
   const handleCopy = async () => {
     try {
@@ -552,57 +548,43 @@ function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative flex items-center overflow-hidden bg-background px-5 pb-0 pt-12 sm:px-8 sm:pt-16 py-0 my-[124px]">
-      <div
-        ref={orbRef}
-        aria-hidden="true"
-        className="pointer-events-none fixed left-0 top-0 z-0 will-change-transform transition-opacity duration-300"
-        style={{ opacity: visible ? 1 : 0 }}
-      >
-        <AsciiSphere />
-      </div>
-
-
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
-        <div className="mb-8 inline-flex items-center gap-3">
-          <span className="inline-flex items-center rounded-full border border-foreground px-3 py-1 text-xs font-semibold uppercase tracking-wide text-foreground">
-            OPEN
-          </span>
-          <span className="text-sm font-semibold text-foreground/90">
-            For new opportunities
-          </span>
+    <section className="px-3 pb-8 pt-8 sm:px-8 sm:pb-12 sm:pt-12">
+      <div className="mac-window mx-auto w-full max-w-3xl">
+        <div className="mac-titlebar">
+          <span className="mac-closebox" aria-hidden="true" />
+          <span className="mac-title">Welcome</span>
+          <span className="mac-closebox invisible" aria-hidden="true" />
         </div>
-
-        <h1 className="text-balance text-4xl font-semibold leading-none text-foreground sm:text-6xl md:text-7xl">
-          {"Design partner who ships, concept to code."
-            .split(" ")
-            .map((word, i, arr) => (
-              <span
-                key={i}
-                className="hero-word inline-block"
-                style={{ animationDelay: `${i * 120}ms` }}
-              >
-                {word}
-                {i < arr.length - 1 ? "\u00A0" : ""}
-              </span>
-            ))}
-        </h1>
-
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <a href={`mailto:${email}`} className="btn-primary">
-            LET'S TALK
-            <span aria-hidden="true">→</span>
-          </a>
-          <button type="button" onClick={handleCopy} className="btn-secondary">
-            {copied ? "COPIED" : "COPY EMAIL"}
-            <span aria-hidden="true">⧉</span>
-          </button>
+        <div className="mac-body sm:p-6">
+          <div className="flex gap-4 sm:gap-5">
+            <CautionIcon />
+            <div className="min-w-0">
+              <p className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="hand-note">OPEN</span>
+                <span className="text-sm font-bold">For new opportunities</span>
+              </p>
+              <h1 className="text-3xl font-bold leading-none tracking-tight text-foreground sm:text-5xl">
+                Admir Kurtovic
+              </h1>
+              <h2 className="mt-2 text-balance text-xl font-bold leading-tight text-foreground sm:mt-3 sm:text-2xl">
+                Design partner who ships, concept to code.
+              </h2>
+              <p className="mt-3 text-sm leading-snug text-muted-foreground">{email}</p>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-col justify-end gap-2 sm:flex-row">
+            <button type="button" onClick={handleCopy} className="btn-secondary">
+              {copied ? "COPIED" : "COPY EMAIL"}
+            </button>
+            <a href={`mailto:${email}`} className="btn-primary">
+              LET'S TALK
+            </a>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
 
 function ProjectCard({ project, index }: { project: (typeof projects)[number]; index: number }) {
   const ref = useRef<HTMLElement | null>(null);
@@ -627,50 +609,64 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   }, []);
 
   const revealClass = `project-card-reveal${visible ? " project-card-reveal--in" : ""}`;
-  const imageFirst = index % 2 === 0;
-  const tiltClass = imageFirst ? "project-tilt project-tilt--left" : "project-tilt project-tilt--right";
-
-  const textBlock = (
-    <div className={imageFirst ? "md:order-2" : "md:order-1"}>
-      <div className="flex flex-wrap items-center gap-3">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">0{index + 1}</p>
-        <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-          {project.status}
-        </span>
-      </div>
-      <h2 className="mt-4 max-w-xl text-balance text-4xl font-semibold leading-none text-foreground md:text-6xl">
-        {project.title}
-      </h2>
-      <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-foreground">{project.accent}</p>
-      <p className="mt-5 max-w-xl text-base leading-snug text-muted-foreground">{project.summary}</p>
-    </div>
-  );
-
-  const imageBlock = (
-    <div
-      className={`overflow-hidden rounded-[1.6rem] bg-secondary p-3 ${tiltClass} ${
-        imageFirst ? "md:order-1" : "md:order-2"
-      }`}
-    >
-      <img
-        src={project.image}
-        alt={`${project.title} project preview for ${project.client}`}
-        className="aspect-[16/10] w-full rounded-[1.1rem] object-cover transition duration-500 group-hover:scale-[1.02]"
-        loading="lazy"
-      />
-    </div>
-  );
+  // Stack the dialog windows so each sits slightly over the one before it.
+  const stackStyle: React.CSSProperties = {
+    marginTop: index === 0 ? 0 : "-0.5rem",
+    zIndex: index + 1,
+    position: "relative",
+  };
+  const windowClass = `mac-window block ${revealClass}`;
 
   const content = (
     <>
-      {textBlock}
-      {imageBlock}
+      <div className="mac-titlebar">
+        <span className="mac-closebox" aria-hidden="true" />
+        <span className="mac-title">{project.title}</span>
+        <span className="mac-closebox invisible" aria-hidden="true" />
+      </div>
+      <div className="mac-body grid gap-4 sm:grid-cols-[0.95fr_1.05fr] sm:gap-5">
+        <div className="mac-well overflow-hidden">
+          <img
+            src={project.image}
+            alt={`${project.title} project preview for ${project.client}`}
+            className="block aspect-[16/10] w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div className="flex min-w-0 flex-col">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <span className="hand-note">0{index + 1}</span>
+            <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
+              {project.accent}
+            </span>
+          </div>
+          <p className="text-sm leading-snug text-foreground">{project.summary}</p>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <span className="text-xs font-bold uppercase tracking-wide text-muted-foreground">
+              {project.client}
+            </span>
+            <span className="btn-primary">{project.status}</span>
+          </div>
+        </div>
+      </div>
     </>
   );
 
-  const gridClass = imageFirst
-    ? "group grid gap-6 border-t border-border py-10 md:grid-cols-[1fr_0.62fr] md:items-center md:gap-10"
-    : "group grid gap-6 border-t border-border py-10 md:grid-cols-[0.62fr_1fr] md:items-center md:gap-10";
+  // A slug takes precedence over an external URL: if a project has its own case
+  // study, the card opens that, and the external link becomes a CTA on the page.
+  if (project.slug) {
+    return (
+      <Link
+        to="/work/$projectId"
+        params={{ projectId: project.slug }}
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        style={stackStyle}
+        className={windowClass}
+      >
+        {content}
+      </Link>
+    );
+  }
 
   if (project.externalUrl) {
     return (
@@ -679,34 +675,16 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
         target="_blank"
         rel="noreferrer"
         ref={ref as React.Ref<HTMLAnchorElement>}
-        style={{ transitionDelay: `${index * 90}ms` }}
-        className={`${gridClass} ${revealClass}`}
+        style={stackStyle}
+        className={windowClass}
       >
         {content}
       </a>
     );
   }
 
-  if (project.slug) {
-    return (
-      <Link
-        to="/work/$projectId"
-        params={{ projectId: project.slug }}
-        ref={ref as React.Ref<HTMLAnchorElement>}
-        style={{ transitionDelay: `${index * 90}ms` }}
-        className={`${gridClass} ${revealClass}`}
-      >
-        {content}
-      </Link>
-    );
-  }
-
   return (
-    <article
-      ref={ref as React.Ref<HTMLElement>}
-      style={{ transitionDelay: `${index * 90}ms` }}
-      className={`${gridClass} ${revealClass}`}
-    >
+    <article ref={ref as React.Ref<HTMLElement>} style={stackStyle} className={windowClass}>
       {content}
     </article>
   );
@@ -714,7 +692,7 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
 
 function WorkList() {
   return (
-    <div>
+    <div className="flex flex-col">
       {projects.map((project, index) => (
         <ProjectCard key={project.title} project={project} index={index} />
       ))}
@@ -724,38 +702,26 @@ function WorkList() {
 
 function CtaSection() {
   return (
-    <section className="bg-foreground text-background">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-5 py-16 sm:px-8 md:flex-row md:items-end md:justify-between lg:py-24">
-        <h2 className="max-w-3xl text-balance text-4xl font-semibold leading-none sm:text-6xl md:text-7xl">
-          Let's create something that makes sense.
-        </h2>
-        <a href="mailto:hello@admirkurtovic.com" className="btn-invert md:shrink-0">
-          Let's chat
-        </a>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-background">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-5 py-8 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:px-8 md:flex-row md:items-center md:justify-between">
-        <p>© {currentYear} Admir Kurtovic</p>
-        <div className="flex flex-wrap gap-5">
-          <Link to="/">Home</Link>
-          <Link to="/work">Work</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/playground">Playground</Link>
-          <a href="https://www.linkedin.com/in/admirkurtovic/" target="_blank" rel="noreferrer">
-            LinkedIn
+    <section className="px-3 py-8 sm:px-8 sm:py-12">
+      <div className="mac-window mx-auto w-full max-w-3xl">
+        <div className="mac-titlebar">
+          <span className="mac-closebox" aria-hidden="true" />
+          <span className="mac-title">New Message</span>
+          <span className="mac-closebox invisible" aria-hidden="true" />
+        </div>
+        <div className="mac-body flex flex-col gap-5 sm:flex-row sm:items-center sm:p-6">
+          <CautionIcon />
+          <div className="flex-1">
+            <h2 className="text-balance text-xl font-bold leading-tight text-foreground sm:text-2xl">
+              Let's create something that makes sense.
+            </h2>
+          </div>
+          <a href="mailto:hello@admirkurtovic.com" className="btn-primary sm:shrink-0">
+            Let's chat
           </a>
         </div>
       </div>
-    </footer>
+    </section>
   );
 }
 
@@ -763,11 +729,15 @@ export function HomePage() {
   return (
     <Shell>
       <Hero />
-      <section className="mx-auto w-full max-w-6xl px-5 pb-16 pt-20 lg:pb-24 sm:px-[24px]">
-        <div className="mb-4">
-          <p className="hand-note mb-2">Okay so… how do I do that?</p>
+      {/* Padding on the section, max-width on the inner wrapper — mirrors Hero and
+          CtaSection so the work cards line up with the dialog windows above and below. */}
+      <section className="px-3 pb-8 pt-2 sm:px-8">
+        <div className="mx-auto w-full max-w-3xl">
+          <div className="mb-5 flex flex-wrap items-center gap-3">
+            <p className="hand-note">Okay so… how do I do that?</p>
+          </div>
+          <WorkList />
         </div>
-        <WorkList />
       </section>
       <CtaSection />
     </Shell>
@@ -797,7 +767,11 @@ export function WorkPage() {
 
 export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudyDetails }) {
   const caseStudy = caseStudyDetails[projectId];
-  const relatedProjects = projects.filter((project) => project.slug !== projectId).slice(0, 2);
+  const gallery = caseStudyGalleries[projectId] ?? [];
+  // Only surface projects that actually lead somewhere, so no "More work" card is a dead end.
+  const relatedProjects = projects
+    .filter((project) => project.slug !== projectId && (project.slug || project.externalUrl))
+    .slice(0, 2);
 
   return (
     <Shell>
@@ -840,22 +814,82 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
               </section>
             ))}
           </div>
+          {gallery.length > 0 ? (
+            <div className="mt-12 flex flex-col gap-10 sm:mt-16 sm:gap-14">
+              {gallery.map((item) => (
+                <figure key={item.src}>
+                  <div className="overflow-hidden rounded-[1.25rem] bg-secondary p-2 sm:rounded-[1.8rem] sm:p-3">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      className="w-full rounded-[0.9rem] bg-white object-contain sm:rounded-[1.25rem]"
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption className="mt-4 max-w-3xl text-base leading-snug text-muted-foreground">
+                    {item.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : null}
+          {caseStudy.project.externalUrl ? (
+            <div className="mt-10 sm:mt-12">
+              <a
+                href={caseStudy.project.externalUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                View live design system <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          ) : null}
         </section>
         <section className="mx-auto w-full max-w-6xl px-5 pb-14 sm:px-8 sm:pb-16 lg:pb-24">
           <p className="section-kicker mb-4">More work</p>
           <div className="grid border-t border-border md:grid-cols-2">
-            {relatedProjects.map((project) => (
-              <div
-                key={project.title}
-                className="border-b border-border py-8 md:px-8 md:odd:border-r"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{project.status}</p>
-                <h2 className="mt-3 text-base leading-snug font-medium text-foreground">
-                  {project.title}
-                </h2>
-                <p className="mt-4 text-muted-foreground">{project.summary}</p>
-              </div>
-            ))}
+            {relatedProjects.map((project) => {
+              const cardClass =
+                "block border-b border-border py-8 transition-opacity hover:opacity-70 md:px-8 md:odd:border-r";
+              const cardContent = (
+                <>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {project.status}
+                  </p>
+                  <h2 className="mt-3 text-base leading-snug font-medium text-foreground">
+                    {project.title}
+                  </h2>
+                  <p className="mt-4 text-muted-foreground">{project.summary}</p>
+                </>
+              );
+
+              // Mirror ProjectCard: an internal case study wins over an external link.
+              if (project.slug) {
+                return (
+                  <Link
+                    key={project.title}
+                    to="/work/$projectId"
+                    params={{ projectId: project.slug }}
+                    className={cardClass}
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={project.title}
+                  href={project.externalUrl ?? undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cardClass}
+                >
+                  {cardContent}
+                </a>
+              );
+            })}
           </div>
         </section>
       </article>
