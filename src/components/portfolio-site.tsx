@@ -697,10 +697,16 @@ function ProjectCard({ project, index }: { project: (typeof projects)[number]; i
   );
 }
 
-function WorkList() {
+// readyOnly hides projects with no destination yet (the "Case study in progress"
+// cards), so the homepage shows only work a visitor can actually open.
+function WorkList({ readyOnly = false }: { readyOnly?: boolean }) {
+  const shown = readyOnly
+    ? projects.filter((project) => project.slug || project.externalUrl)
+    : projects;
+
   return (
     <div className="flex flex-col">
-      {projects.map((project, index) => (
+      {shown.map((project, index) => (
         <ProjectCard key={project.title} project={project} index={index} />
       ))}
     </div>
@@ -743,7 +749,7 @@ export function HomePage() {
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <p className="hand-note">Okay so… how do I do that?</p>
           </div>
-          <WorkList />
+          <WorkList readyOnly />
         </div>
       </section>
       <CtaSection />
