@@ -111,7 +111,7 @@ const caseStudyDetails = {
       },
       {
         title: "Outcome",
-        body: "One token change now propagates to 670 variant components in a single pass, along with the multi-platform token sets and the documentation, with nobody hand-editing a file. Engineers pull the generated components straight into product work instead of rebuilding one-offs, which is the real test of whether a design system is being used rather than admired.",
+        body: "A single pass now audits and updates 670+ component variants, along with the multi-platform token sets and the documentation, with nobody hand-editing a file. Engineers pull the generated components straight into product work instead of rebuilding one-offs, which is the real test of whether a design system is being used rather than admired.",
       },
     ],
   },
