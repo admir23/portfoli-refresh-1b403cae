@@ -555,8 +555,8 @@ function Hero() {
   };
 
   return (
-    <section className="px-3 pb-8 pt-8 sm:px-8 sm:pb-12 sm:pt-12">
-      <div className="mac-window mx-auto w-full max-w-3xl">
+    <section className="px-5 pb-8 pt-8 sm:px-8 sm:pb-12 sm:pt-12">
+      <div className="mac-window mx-auto w-full max-w-6xl">
         <div className="mac-titlebar">
           <span className="mac-closebox" aria-hidden="true" />
           <span className="mac-title">Welcome</span>
@@ -723,8 +723,8 @@ function WorkList({ readyOnly = false }: { readyOnly?: boolean }) {
 
 function CtaSection() {
   return (
-    <section className="px-3 py-8 sm:px-8 sm:py-12">
-      <div className="mac-window mx-auto w-full max-w-3xl">
+    <section className="px-5 py-8 sm:px-8 sm:py-12">
+      <div className="mac-window mx-auto w-full max-w-6xl">
         <div className="mac-titlebar">
           <span className="mac-closebox" aria-hidden="true" />
           <span className="mac-title">New Message</span>
@@ -752,8 +752,8 @@ export function HomePage() {
       <Hero />
       {/* Padding on the section, max-width on the inner wrapper, mirroring Hero and
           CtaSection so the work cards line up with the dialog windows above and below. */}
-      <section className="px-3 pb-8 pt-2 sm:px-8">
-        <div className="mx-auto w-full max-w-3xl">
+      <section className="px-5 pb-8 pt-2 sm:px-8">
+        <div className="mx-auto w-full max-w-6xl">
           <div className="mb-5 flex flex-wrap items-center gap-3">
             <p className="hand-note">Okay so… how do I do that?</p>
           </div>
