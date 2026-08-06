@@ -29,40 +29,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Admir Kurtovic, Product Designer" },
-      {
-        name: "description",
-        content:
-          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
-      },
       { name: "author", content: "Admir Kurtovic" },
       { name: "google-site-verification", content: "JI7smr83Xulq2ihQ8EVuD2iU4YN_opf1rKagJMi_FCo" },
       { property: "og:site_name", content: "Admir Kurtovic" },
-      { property: "og:type", content: "website" },
-      { property: "og:title", content: "Admir Kurtovic, Product Designer" },
-      {
-        property: "og:description",
-        content:
-          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
-      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Admir_Kurtovic" },
-      { name: "twitter:title", content: "Admir Kurtovic, Product Designer" },
-      {
-        name: "twitter:description",
-        content:
-          "Admir Kurtović, Senior Product Designer in Sarajevo. Research driven products for startups and enterprises. Case studies, process, measurable results.",
-      },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3704e43c-f8f7-4744-a868-9902deb1bb5b/id-preview-df06f061--09a34e2e-043d-4b25-915c-567d88f53502.lovable.app-1777360259339.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3704e43c-f8f7-4744-a868-9902deb1bb5b/id-preview-df06f061--09a34e2e-043d-4b25-915c-567d88f53502.lovable.app-1777360259339.png",
-      },
     ],
     links: [
       {
