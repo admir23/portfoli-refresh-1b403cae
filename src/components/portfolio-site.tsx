@@ -730,7 +730,7 @@ function CtaSection() {
             </h2>
           </div>
           <a href="mailto:hello@admirkurtovic.com" className="btn-primary sm:shrink-0">
-            Let's chat
+            LET'S TALK
           </a>
         </div>
       </div>
@@ -1061,7 +1061,7 @@ export function ContactPage() {
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <a href="mailto:hello@admirkurtovic.com" className="btn-primary">
-            hello@admirkurtovic.com
+            LET'S TALK
           </a>
           <a
             href="https://www.linkedin.com/in/admirkurtovic/"
