@@ -7,15 +7,14 @@ import direct2careImage from "../assets/direct2care.png";
 import fumisImage from "../assets/fumis.png";
 import handwerkerproImage from "../assets/handwerkerpro.jpg";
 import lawnguruImage from "../assets/lawnguru-design-system.png";
-import shopChatStep1Image from "../assets/shop-chat-step-1.png";
-import shopChatStep2Image from "../assets/shop-chat-step-2.png";
-import shopChatStep3Image from "../assets/shop-chat-step-3.png";
-import shopChatStep4Image from "../assets/shop-chat-step-4.png";
-import shopChatStep5Image from "../assets/shop-chat-step-5.png";
-import shopChatStep6Image from "../assets/shop-chat-step-6.png";
 import shopComponentAuditImage from "../assets/shop-component-audit.png";
 import shopCoverImage from "../assets/shop-cover.jpg";
+import shopEntryForkImage from "../assets/shop-entry-fork.png";
+import shopManualFlowImage from "../assets/shop-manual-flow.png";
+import shopPhotosFlowImage from "../assets/shop-photos-flow.png";
 import shopQuestionSetsImage from "../assets/shop-question-sets.png";
+import shopServicePageImage from "../assets/shop-service-page.png";
+import shopWorkOrderImage from "../assets/shop-work-order.png";
 import unitedFitnessImage from "../assets/united-fitness.jpg";
 import {
   Drawer,
@@ -192,35 +191,34 @@ type GalleryItem = { src: string; alt: string; caption: string };
 const caseStudyGalleries: Partial<Record<keyof typeof caseStudyDetails, GalleryItem[]>> = {
   "conversational-booking": [
     {
-      src: shopChatStep1Image,
-      alt: "Chat screen: starting the booking and picking areas of the property",
-      caption: "Step 1: the conversation opens on the service and the areas that need work.",
-    },
-    {
-      src: shopChatStep2Image,
-      alt: "Chat screen offering relevant add-on services",
-      caption: "Step 2: add-ons are suggested in context rather than bundled into the form up front.",
-    },
-    {
-      src: shopChatStep3Image,
-      alt: "Chat screen asking a clarifying follow-up question",
-      caption: "Step 3: a clarifying follow-up, asked only when the previous answer needs it.",
-    },
-    {
-      src: shopChatStep4Image,
-      alt: "Chat screen prompting for photos of the job",
+      src: shopServicePageImage,
+      alt: "Yard Clean Up service page showing how it works, price range, and customer reviews",
       caption:
-        "Step 4: photos. Skippable by design, since blocking here was the biggest source of drop-off.",
+        "The service page a customer lands on: what the job includes, a typical price range, and proof from other jobs, before any questions get asked.",
     },
     {
-      src: shopChatStep5Image,
-      alt: "Chat screen asking when the job needs doing",
-      caption: "Step 5: timing, one of the questions asked once regardless of services stacked.",
+      src: shopEntryForkImage,
+      alt: "Choice between starting with photos or entering details manually",
+      caption:
+        "The fork. Photos are the fastest route, but the manual path is offered as an equal, not a fallback, because not everyone can or wants to photograph their yard first.",
     },
     {
-      src: shopChatStep6Image,
-      alt: "Chat screen showing the completed work order summary",
-      caption: "Step 6: the work order summary the customer confirms before the job is sent out.",
+      src: shopPhotosFlowImage,
+      alt: "Photo-first flow: attaching photos and receiving an AI-drafted work order",
+      caption:
+        "Photo-first: the customer attaches images, the system drafts the work order from what it sees, and only asks about what the photos cannot answer.",
+    },
+    {
+      src: shopManualFlowImage,
+      alt: "Manual chat flow asking one question at a time with quick-reply options",
+      caption:
+        "Manual: one question at a time, answered with quick-reply chips and checklists, with each answer echoed back so the customer can see what has been captured.",
+    },
+    {
+      src: shopWorkOrderImage,
+      alt: "Editable work order summarising cleanup, weeding, and mulch install before submitting",
+      caption:
+        "Both routes converge on the same editable work order. Every line can be corrected before quotes are requested, so a wrong AI draft never becomes a wrong job.",
     },
     {
       src: shopQuestionSetsImage,
