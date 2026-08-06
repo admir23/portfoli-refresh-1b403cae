@@ -580,6 +580,14 @@ function Hero() {
             </div>
           </div>
           <div className="mt-6 flex flex-col justify-end gap-2 sm:flex-row">
+            <a
+              href="https://www.linkedin.com/in/admirkurtovic/"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary"
+            >
+              LINKEDIN
+            </a>
             <button type="button" onClick={handleCopy} className="btn-secondary">
               {copied ? "COPIED" : "COPY EMAIL"}
             </button>
