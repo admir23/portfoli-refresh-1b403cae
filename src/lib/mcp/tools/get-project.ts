@@ -9,7 +9,7 @@ export default defineTool({
   description:
     "Look up one project from Admir Kurtovic's portfolio by title or client name (case-insensitive, partial match allowed).",
   inputSchema: {
-    query: z.string().describe("Project title or client name, e.g. 'Lawn Guru' or 'Direct2Care'."),
+    query: z.string().describe("Project title or client name, e.g. 'LawnGuru' or 'Direct2Care'."),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ query }, ctx) => {

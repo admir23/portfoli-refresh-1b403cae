@@ -29,7 +29,7 @@ import {
 const projects = [
   {
     title: "Conversational Booking",
-    client: "Lawn Guru",
+    client: "LawnGuru",
     slug: "conversational-booking",
     externalUrl: null,
     image: shopCoverImage,
@@ -40,13 +40,13 @@ const projects = [
   },
   {
     title: "Automated Design System",
-    client: "Lawn Guru",
+    client: "LawnGuru",
     slug: "automated-design-system",
     externalUrl: "https://lawn-guru-design-system.vercel.app/",
     image: lawnguruImage,
     accent: "Design system · AI automation",
     summary:
-      "A fully automated design system built with Claude: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
+      "A fully automated design system built with Figma MCP and Claude Code: Figma tokens turned into multi-platform libraries, production-ready React components, and living documentation.",
     status: "Read case study",
   },
   {
@@ -100,7 +100,7 @@ const caseStudyDetails = {
     project: projects[1],
     headline: "A design system that maintains itself, from Figma token to shipped component.",
     context:
-      "Lawn Guru needed a design system that could keep pace with product work instead of drifting behind it, so the path from Figma tokens to production components had to run without manual upkeep.",
+      "LawnGuru needed a design system that could keep pace with product work instead of drifting behind it, so the path from Figma tokens to production components had to run without manual upkeep.",
     sections: [
       {
         title: "Challenge",
@@ -108,11 +108,11 @@ const caseStudyDetails = {
       },
       {
         title: "Approach",
-        body: "I built the system as a pipeline rather than a library. Figma variables act as the single source of truth, generating multi-platform token sets, React components, and documentation from the same definitions, with Claude automating the translation work in between.",
+        body: "I built the system as a pipeline rather than a library. Figma variables act as the single source of truth, and Figma MCP plus Claude Code automate the translation work in between, generating multi-platform token sets, React components, and documentation from the same definitions.",
       },
       {
         title: "Outcome",
-        body: "Token changes now reach production components and living documentation without anyone hand-editing a file. The system stays accurate by default, which is what makes it likely to actually get used.",
+        body: "One token change now propagates to 670 variant components in a single pass, along with the multi-platform token sets and the documentation, with nobody hand-editing a file. Engineers pull the generated components straight into product work instead of rebuilding one-offs, which is the real test of whether a design system is being used rather than admired.",
       },
     ],
   },
@@ -120,7 +120,7 @@ const caseStudyDetails = {
     project: projects[0],
     headline: "Turning a drop-off-prone Typeform into a conversation that books the job.",
     context:
-      "Lawn Guru's Yard Clean Up form bundled cleanup, mulch install, and weeding into a single Typeform. The work was to break that apart into a chat flow that asks only what the chosen service needs, and to establish which components the chat actually required.",
+      "LawnGuru's Yard Clean Up form bundled cleanup, mulch install, and weeding into a single Typeform. The work was to break that apart into a chat flow that asks only what the chosen service needs, and to establish which components the chat actually required.",
     sections: [
       {
         title: "Challenge",
@@ -177,6 +177,13 @@ const caseStudyDetails = {
     ],
   },
 } as const;
+
+// Optional "what I chose not to automate" note, rendered full-width under the
+// Challenge/Approach/Outcome grid so the decision-making gets its own weight.
+const caseStudyTradeoffs: Partial<Record<keyof typeof caseStudyDetails, string>> = {
+  "automated-design-system":
+    "Not everything was worth automating, and deciding where to stop was most of the work. Accessibility was the first line I drew: generated output looked correct but could not be trusted on contrast ratios or semantic structure, so every colour pairing and component role is still verified by hand before it ships. Complexity was the second. Primitives with predictable structure generate reliably, but anything carrying real interaction logic or state I wrote myself, because a component that is subtly wrong costs more to find and fix than one written from scratch. The pipeline is deliberately narrow: it does the repetitive translation work at volume, and stops where judgement starts.",
+};
 
 // Optional process imagery per case study, kept separate from caseStudyDetails so
 // entries without a gallery don't need an empty key.
@@ -768,6 +775,7 @@ export function WorkPage() {
 export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudyDetails }) {
   const caseStudy = caseStudyDetails[projectId];
   const gallery = caseStudyGalleries[projectId] ?? [];
+  const tradeoffs = caseStudyTradeoffs[projectId];
   // Only surface projects that actually lead somewhere, so no "More work" card is a dead end.
   const relatedProjects = projects
     .filter((project) => project.slug !== projectId && (project.slug || project.externalUrl))
@@ -789,6 +797,18 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
           <p className="mt-7 max-w-3xl text-base leading-snug text-muted-foreground sm:mt-8">
             {caseStudy.context}
           </p>
+          {caseStudy.project.externalUrl ? (
+            <div className="mt-7 sm:mt-8">
+              <a
+                href={caseStudy.project.externalUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                View live design system <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          ) : null}
         </section>
         <section className="mx-auto w-full max-w-6xl px-5 pb-14 sm:px-8 sm:pb-16 lg:pb-24">
           <div className="overflow-hidden rounded-[1.25rem] bg-secondary p-2 sm:rounded-[1.8rem] sm:p-3">
@@ -814,6 +834,16 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
               </section>
             ))}
           </div>
+          {tradeoffs ? (
+            <section className="mt-10 border-b border-border py-7 sm:mt-12 sm:py-8">
+              <h2 className="text-base leading-snug font-medium text-foreground">
+                Trade-offs
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-snug text-muted-foreground sm:mt-5">
+                {tradeoffs}
+              </p>
+            </section>
+          ) : null}
           {gallery.length > 0 ? (
             <div className="mt-12 flex flex-col gap-10 sm:mt-16 sm:gap-14">
               {gallery.map((item) => (
@@ -831,18 +861,6 @@ export function CaseStudyPage({ projectId }: { projectId: keyof typeof caseStudy
                   </figcaption>
                 </figure>
               ))}
-            </div>
-          ) : null}
-          {caseStudy.project.externalUrl ? (
-            <div className="mt-10 sm:mt-12">
-              <a
-                href={caseStudy.project.externalUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                View live design system <span aria-hidden="true">→</span>
-              </a>
             </div>
           ) : null}
         </section>
