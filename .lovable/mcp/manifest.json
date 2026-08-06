@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://hniddetcukanxcxbfrlk.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "pixel-perfect-portfolio",
+      "version": "0.1.0",
+      "title": "Pixel Perfect Portfolio"
+    },
+    "tools": [
+      {
+        "name": "list_projects",
+        "title": "List portfolio projects",
+        "description": "List every project in Admir Kurtovic's portfolio with client, focus area, summary, status, and link.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_project",
+        "title": "Get a portfolio project",
+        "description": "Look up one project from Admir Kurtovic's portfolio by title or client name (case-insensitive, partial match allowed).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Project title or client name, e.g. 'Lawn Guru' or 'Direct2Care'."
+            }
+          },
+          "required": [
+            "query"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_profile",
+        "title": "Get designer profile",
+        "description": "Get Admir Kurtovic's profile: role, location, positioning summary, and the ways to get in touch (email, LinkedIn, CV, website).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
