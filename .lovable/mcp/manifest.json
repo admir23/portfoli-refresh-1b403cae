@@ -47,7 +47,7 @@
           "properties": {
             "query": {
               "type": "string",
-              "description": "Project title or client name, e.g. 'Lawn Guru' or 'Direct2Care'."
+              "description": "Project title or client name, e.g. 'LawnGuru' or 'Direct2Care'."
             }
           },
           "required": [

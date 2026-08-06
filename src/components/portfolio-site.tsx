@@ -348,7 +348,7 @@ function Header() {
             className="mac-menu-item px-2"
             aria-label="Admir Kurtovic home"
           >
-            <img src={admirLogo} alt="Admir Kurtovic logo" className="h-4 w-4 dark:invert" />
+            <img src={admirLogo} alt="Admir Kurtovic" className="h-4 w-4 dark:invert" />
           </Link>
           <span className="mac-menu-item hidden font-bold sm:inline-flex" aria-hidden="true">
             Admir Kurtovic
@@ -571,7 +571,7 @@ function Hero() {
                 <span className="text-sm font-bold">For new opportunities</span>
               </p>
               <h1 className="text-3xl font-bold leading-none tracking-tight text-foreground sm:text-5xl">
-                Admir Kurtovic
+                Admir Kurtovic — Product Design Partner
               </h1>
               <h2 className="mt-2 text-balance text-xl font-bold leading-tight text-foreground sm:mt-3 sm:text-2xl">
                 Design partner who ships, concept to code.
